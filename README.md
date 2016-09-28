@@ -1,5 +1,5 @@
 # wdi-project-3
 Team Dragon-Slayer
 
-Johnnie de La Moriniere
-Dan Rogers
+* Johnnie de La Moriniere
+* Dan Rogers
