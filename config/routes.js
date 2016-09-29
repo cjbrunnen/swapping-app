@@ -1,6 +1,9 @@
 const router           = require("express").Router();
 const authentications  = require("../controllers/authentications");
 const users            = require("../controllers/users");
+const clothesItems     = require('../controllers/clothesItems');
+const transactions     = require('../controllers/transactions');
+
 
   router.route("/register")
     .post(authentications.register);
@@ -10,5 +13,15 @@ const users            = require("../controllers/users");
   router.route('/users/:id')
     .get(users.show)
     .put(users.update);
+
+  router.route('/clothesItems')
+    .get(clothesItems.index)
+    .post(clothesItems.create);
+  router.route('/clothesItems/:id')
+    .get(clothesItems.show)
+    .put(clothesItems.update)
+    .delete(clothesItems.delete);
+
+
 
 module.exports = router;
