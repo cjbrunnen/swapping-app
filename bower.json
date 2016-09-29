@@ -1,12 +1,12 @@
 {
-  "name": "w07wknd",
+  "name": "wdi-project-3",
   "description": "",
   "main": "index.js",
   "authors": [
     "delamorinierejh <delamorinierejh@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/delamorinierejh/WDI_LDN_22_HOMEWORK",
+  "homepage": "https://github.com/cjbrunnen/wdi-project-3",
   "ignore": [
     "**/.*",
     "node_modules",
