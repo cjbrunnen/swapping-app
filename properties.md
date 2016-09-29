@@ -78,5 +78,6 @@ Swish
 		1 = wishListed (I like your shit)
 		2 = wishListedBack (do you want this shit)
 		3 = completed (yes)
+		4 = cancelled
 	
 	
