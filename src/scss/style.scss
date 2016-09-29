@@ -1,0 +1,19 @@
+@import "bower";
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  background: #f5f5f5;
+}
+
+header {
+    background: #333;
+}
+
+a.navbar-brand {
+  font-size: 36px;
+  color: black;
+  strong {
+    font-weight: 900;
+  }
+}
