@@ -9,7 +9,7 @@ const expressJWT = require("express-jwt");
 const router     = require("./config/routes");
 const config     = require("./config/config");
 
-mongoose.connect(config.db.production);
+mongoose.connect(config.db.test);
 
 app.use(morgan("dev"));
 app.use(express.static(`${__dirname}/public`));
@@ -37,3 +37,5 @@ app.use("/api", router);
 app.get("/*", (req, res) =>  res.sendFile(__dirname + "/index.html"));
 
 app.listen(port, () =>  console.log(`Express has started on port: ${port}`));
+
+module.exports = app;

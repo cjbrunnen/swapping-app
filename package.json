@@ -43,5 +43,8 @@
     "main-bower-files": "^2.13.1",
     "gulp-plumber": "^1.1.0",
     "gulp-nodemon": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=6.x"
   }
 }
