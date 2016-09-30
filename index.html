@@ -6,7 +6,7 @@
   <link charset="utf-8" rel="stylesheet" href="/css/style.css">
   <script  charset="utf-8" src="/js/app.js" type="text/javascript"></script>
 </head>
-<body>
+<body ng-controller="MainCtrl as main">
   <header>
     <nav class="navbar navbar-default">
       <div class="container">
@@ -37,7 +37,7 @@
             <li>
               <a href="#" ui-sref-active >Wardrobe</a>
             </li>
-            <li>
+            <!-- <li>
               <a href="#" ui-sref-active >Incoming Swishes</a>
             </li>
             <li>
@@ -45,7 +45,7 @@
             </li>
             <li>
               <a href="#" ui-sref-active >Archive</a>
-            </li>
+            </li> -->
             <li>
               <a href="#" ng-click="main.logout()">Logout</a>
             </li>

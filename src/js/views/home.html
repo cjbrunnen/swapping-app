@@ -1,4 +1,51 @@
 <div class="home-page">
-  <h1>Welcome to <span>SWISH</span>List</h1>
-  <h2>{{ 1+1+1+1 }} = AWESOME! DRAGONS!</h2>
+  <div class="login-register">
+    <div class="formsBox">
+      <ul>
+        <li class="loginForm">
+          <h3>Login</h3>
+          <form ng-submit="home.login()">
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" ng-model="home.user.email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" ng-model="home.user.password" placeholder="Password">
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit">
+          </form>
+        </li>
+        <li class="registerForm">
+          <h3>Register</h3>
+          <form ng-submit="register.register()">
+            <div class="form-group">
+              <input class="form-control" type="text" name="username" ng-model="register.user.username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="firstName" ng-model="register.user.firstName" placeholder="First name">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="lastName" ng-model="register.user.lastName" placeholder="Last name">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="image" ng-model="register.user.image" placeholder="Image">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation">
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit" />
+          </form>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+
 </div>
