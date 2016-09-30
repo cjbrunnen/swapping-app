@@ -8,8 +8,8 @@ module.exports = {
 
 const Transaction = require('../models/transaction');
 
-function transactionsCreate(){
-
+function transactionsCreate(req, res){
+  const transaction = new Transaction(req.body);
 }
 
 function transactionsSwishback(){
