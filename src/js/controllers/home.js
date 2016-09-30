@@ -8,15 +8,14 @@ function HomeCtrl(User, CurrentUserService, $state){
 
   vm.register = () => {
     User
-      .register( { user : vm.userRegister })
-      .$promise
-      .then(data => {
-        const user = data.user || null;
-        if (user){
+    .register( { user : vm.userRegister })
+    .$promise
+    .then(data => {
+      const user = data.user || null;
+      if (user){
         CurrentUserService.saveUser(user);
-        $state.go('clothesItemsIndex');
       }
-      });
+    });
   };
 
   vm.login = () => {
@@ -27,7 +26,6 @@ function HomeCtrl(User, CurrentUserService, $state){
       const user = data.user || null;
       if (user){
         CurrentUserService.saveUser(user);
-        $state.go('clothesItemsIndex');
       }
     });
   };
