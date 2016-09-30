@@ -17,30 +17,29 @@ describe("Auth tests", function() {
 
     it("should return a token", done => {
       api.post('/api/register')
-        .set("Accept", "application/json")
-        .send({
-          user: {
-            username: "test",
-            email: "test@test.com",
-            password: "password",
-            passwordConfirmation: "password"
-          }
-        }).end((err, res) => {
-          console.log("HELLO!", res.body);
-          expect(res.body.token).to.be.a('string');
-          done();
-        });
+      .set("Accept", "application/json")
+      .send({
+        user: {
+          username: "test",
+          email: "test@test.com",
+          password: "password",
+          passwordConfirmation: "password"
+        }
+      }).end((err, res) => {
+        expect(res.body.token).to.be.a('string');
+        done();
+      });
     });
   });
 
   describe("POST /api/register with bad credentials", () => {
     it("should return a 500 response", done => {
       api.post('/api/register')
-        .set("Accept", "application/json")
-        .send({
-          username: "test",
-          email: "test@test.com",
-        }).expect(500, done);
+      .set("Accept", "application/json")
+      .send({
+        username: "test",
+        email: "test@test.com",
+      }).expect(500, done);
     });
   });
 
@@ -56,14 +55,14 @@ describe("Auth tests", function() {
 
       user.save((err, user) => {
         api.post('/api/login')
-          .set("Accept", "application/json")
-          .send({
-            email: "test@test.com",
-            password: "password"
-          }).end((err, res) => {
-            expect(res.body.token).to.be.a('string');
-            done();
-          });
+        .set("Accept", "application/json")
+        .send({
+          email: "test@test.com",
+          password: "password"
+        }).end((err, res) => {
+          expect(res.body.token).to.be.a('string');
+          done();
+        });
       });
     });
   });
@@ -81,11 +80,11 @@ describe("Auth tests", function() {
       user.save((err, user) => {
         // console.log("HERE", err);
         api.post('/api/login')
-          .set("Accept", "application/json")
-          .send({
-            email: "test@test.com",
-            password: "pass"
-          }).expect(401, done);
+        .set("Accept", "application/json")
+        .send({
+          email: "test@test.com",
+          password: "pass"
+        }).expect(401, done);
       });
     });
   });
