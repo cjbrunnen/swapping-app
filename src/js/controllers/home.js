@@ -2,8 +2,8 @@ angular
 .module("swishListApp")
 .controller("HomeCtrl", HomeCtrl);
 
-HomeCtrl.$inject = ["User", "CurrentUserService"];
-function HomeCtrl(User, CurrentUserService){
+HomeCtrl.$inject = ["User", "CurrentUserService", "$state"];
+function HomeCtrl(User, CurrentUserService, $state){
   const vm = this;
 
   vm.register = () => {
@@ -14,6 +14,7 @@ function HomeCtrl(User, CurrentUserService){
         const user = data.user || null;
         if (user){
         CurrentUserService.saveUser(user);
+        $state.go('clothesItemsIndex');
       }
       });
   };
@@ -26,6 +27,7 @@ function HomeCtrl(User, CurrentUserService){
       const user = data.user || null;
       if (user){
         CurrentUserService.saveUser(user);
+        $state.go('clothesItemsIndex');
       }
     });
   };

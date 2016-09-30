@@ -11,6 +11,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     url: "/",
     templateUrl: "/js/views/home.html",
     controller: "HomeCtrl as home"
+  })
+  .state('clothesItemsIndex', {
+    url: '/clothesItems',
+    templateUrl: '/js/views/clothesItems/index.html',
+    // controller: 'ClothesItemsIndexCtrl as clothesItems'
   });
 
   $urlRouterProvider.otherwise("/");
