@@ -1,4 +1,48 @@
 <div class="home-page">
-  <h1>Welcome to <span>SWISH</span>List</h1>
-  <h2>{{ 1+1+1+1 }} = AWESOME! DRAGONS!</h2>
+  <div class="login-register">
+    <div class="formsBox">
+      <ul>
+        <li class="loginForm">
+          <h3>Login</h3>
+          <form ng-submit="home.login()">
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" ng-model="home.userLogin.email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" ng-model="home.userLogin.password" placeholder="Password">
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit">
+          </form>
+        </li>
+        <li class="registerForm">
+          <h3>Register</h3>
+          <form ng-submit="home.register()">
+            <div class="form-group">
+              <input class="form-control" type="text" name="username" ng-model="home.userRegister.username" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="firstName" ng-model="home.userRegister.firstName" placeholder="First name">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="text" name="lastName" ng-model="home.userRegister.lastName" placeholder="Last name">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" name="email" ng-model="home.userRegister.email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="password" ng-model="home.userRegister.password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="password" name="passwordConfirmation" ng-model="home.userRegister.passwordConfirmation" placeholder="Password confirmation">
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit" />
+          </form>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+
 </div>
