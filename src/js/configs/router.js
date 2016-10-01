@@ -15,12 +15,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   .state('clothesItemsIndex', {
     url: '/clothesItems',
     templateUrl: '/js/views/clothesItems/index.html',
-    // controller: 'ClothesItemsIndexCtrl as clothesItems'
+    controller: 'ClothesItemsIndexCtrl as clothesItems'
   })
   .state('clothesItemsNew', {
     url: '/clothesItems/new',
     templateUrl: '/js/views/clothesItems/new.html',
-    // controller: 'ClothesItemsNewCtrl as clothesItems'
+    controller: 'ClothesItemsNewCtrl as clothesItems'
   })
   .state('usersWardrobeShow', {
     url: '/user/wardrobe',
