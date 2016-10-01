@@ -23,15 +23,15 @@ function transactionsSwishback(req, res){
     return res.status(200).json({ transaction });
   });
 }
-
-function transactionsApprove(){
-
-}
-
-function transactionsReject(){
-
-}
-
-function transactionsCancel(){
-
-}
+// 
+// function transactionsApprove(){
+//
+// }
+//
+// function transactionsReject(){
+//
+// }
+//
+// function transactionsCancel(){
+//
+// }
