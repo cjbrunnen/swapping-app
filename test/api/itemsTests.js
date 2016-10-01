@@ -105,6 +105,17 @@ describe("Clothes Items Controller Test", function() {
       });
     });
 
+    it("should return a JSON object", function(done) {
+      api
+      .get(`/api/clothesItems/${IDHERE}`)
+      .set("Accept", "application/json")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .end((err, res) => {
+        expect(res.body).to.be.an("object");
+        done();
+      });
+    });
+
     it("should return a 401 when no token is provided in the header", done => {
       api.get(`/api/clothesItems/${IDHERE}`)
       .set('Accept', 'application/json')
@@ -159,6 +170,27 @@ describe("Clothes Items Controller Test", function() {
       .expect(401, done);
     });
 
+    it("should return a JSON object", function(done) {
+      api
+      .post(`/api/clothesItems`)
+      .set("Accept", "application/json")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send({
+        clothesItem : {
+          title:        "Diesel Jeans",
+          description:  "These stonewashed jeans are tight fitting and lovely",
+          category:     "Jeans",
+          sex:          "Male",
+          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg",
+          available:    true
+        }
+      })
+      .end((err, res) => {
+        expect(res.body).to.be.an("object");
+        done();
+      });
+    });
+
   });
 
 
@@ -193,6 +225,27 @@ describe("Clothes Items Controller Test", function() {
         available:    true
       })
       .expect(200, done);
+    });
+
+    it("should return a JSON object", function(done) {
+      api
+      .put(`/api/clothesItems/${ID2HERE}`)
+      .set("Accept", "application/json")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send({
+        clothesItem : {
+          title:        "Topman Jeans",
+          description:  "These stonewashed jeans are tight fitting and lovely",
+          category:     "Jeans",
+          sex:          "Male",
+          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg",
+          available:    true
+        }
+      })
+      .end((err, res) => {
+        expect(res.body).to.be.an("object");
+        done();
+      });
     });
 
     it("should return a 401 when an unauthorised user updates an exisitng item", done =>{
