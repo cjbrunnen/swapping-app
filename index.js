@@ -10,7 +10,7 @@ const expressJWT = require("express-jwt");
 const router     = require("./config/routes");
 const config     = require("./config/config");
 
-mongoose.connect(config.db.production);
+mongoose.connect(config.db[environment]);
 
 app.use(morgan("dev"));
 app.use(express.static(`${__dirname}/public`));
