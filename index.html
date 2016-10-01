@@ -21,31 +21,25 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
+          <ul ng-show="main.user" class="nav navbar-nav navbar-right">
             <li>
-              <a href="#" ui-sref-active >Register</a>
+              <a href="#" ui-sref="clothesItemsIndex" ui-sref-active >Browse Clothes</a>
             </li>
             <li>
-              <a href="#" ui-sref-active >Login</a>
+              <a href="#" ui-sref="clothesItemsNew" ui-sref-active >Add an item</a>
             </li>
             <li>
-              <a href="#" ui-sref-active >Browse Clothes</a>
+              <a href="#" ui-sref="usersWardrobeShow" ui-sref-active >Wardrobe</a>
             </li>
             <li>
-              <a href="#" ui-sref-active >Add an item</a>
+              <a href="#" ui-sref="usersIncomingShow" ui-sref-active >Incoming Swishes</a>
             </li>
             <li>
-              <a href="#" ui-sref-active >Wardrobe</a>
-            </li>
-            <!-- <li>
-              <a href="#" ui-sref-active >Incoming Swishes</a>
+              <a href="#" ui-sref="usersOutgoingShow" ui-sref-active >Outgoing Swishes</a>
             </li>
             <li>
-              <a href="#" ui-sref-active >Outgoing Swishes</a>
+              <a href="#" ui-sref="usersArchiveShow" ui-sref-active >Archive</a>
             </li>
-            <li>
-              <a href="#" ui-sref-active >Archive</a>
-            </li> -->
             <li>
               <a href="#" ng-click="main.logout()">Logout</a>
             </li>
