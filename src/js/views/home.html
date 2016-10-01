@@ -1,11 +1,11 @@
 <div class="home-page">
   <div class="login-register">
-    <div class="formsBox">
-      <ul>
+    <div class="formsBox row">
+      <ul class="ulForm">
         <li class="loginForm">
-          <h3>Login</h3>
-          <form ng-submit="home.login()">
+          <form ng-submit="home.login()" id="formOne" class="col-md-6 push-md-6 pull-right">
             <div class="form-group">
+              <h3>Login</h3>
               <input class="form-control" type="email" name="email" ng-model="home.userLogin.email" placeholder="Email">
             </div>
             <div class="form-group">
@@ -15,9 +15,9 @@
           </form>
         </li>
         <li class="registerForm">
-          <h3>Register</h3>
-          <form ng-submit="home.register()">
+          <form ng-submit="home.register()" id="formTwo" class="col-md-6 push-md-6 pull-right">
             <div class="form-group">
+              <h3>Register</h3>
               <input class="form-control" type="text" name="username" ng-model="home.userRegister.username" placeholder="Username">
             </div>
             <div class="form-group">

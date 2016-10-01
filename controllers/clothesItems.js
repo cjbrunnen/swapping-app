@@ -1,6 +1,6 @@
 module.exports = {
   index:  clothesItemsIndex,
-  create: clothesItemCreate,
+  create: clothesItemsCreate,
   show:   clothesItemsShow,
   update: clothesItemsUpdate,
   delete: clothesItemsDelete
@@ -15,17 +15,17 @@ function clothesItemsIndex(req, res) {
   });
 }
 
-function clothesItemCreate(req, res) {
+function clothesItemsCreate(req, res) {
   const clothesItem = new ClothesItem(req.body.clothesItem);
   clothesItem.save((err, clothesItem) => {
     if (err) return res.status(500).json({ messsage: "Something went wrong." });
-    return res.status(201).json({clothesItem});
+    return res.status(201).json({ clothesItem });
   });
 }
 
 function clothesItemsShow(req, res) {
   ClothesItem.findById(req.params.id, (err, clothesItem) => {
-    if (err) return res.status(500).json({ message: "Something went wrong." });
+    if (err) return res.status(500).json({ message: "Something went wrong" });
     if (!clothesItem) return res.status(404).json({ message: "ClothesItem not found." });
     return res.status(200).json({ clothesItem });
   });

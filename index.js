@@ -3,13 +3,14 @@ const morgan     = require("morgan");
 const mongoose   = require("mongoose");
 const bodyParser = require("body-parser");
 const app        = express();
+const environment = app.get("env");
 const port       = process.env.PORT || 3000;
 const cors       = require("cors");
 const expressJWT = require("express-jwt");
 const router     = require("./config/routes");
 const config     = require("./config/config");
 
-mongoose.connect(config.db);
+mongoose.connect(config.db[environment]);
 
 app.use(morgan("dev"));
 app.use(express.static(`${__dirname}/public`));
@@ -33,7 +34,8 @@ function jwtErrorHandler(err, req, res, next){
 
 app.use("/api", router);
 
-
 app.get("/*", (req, res) =>  res.sendFile(__dirname + "/index.html"));
 
 app.listen(port, () =>  console.log(`Express has started on port: ${port}`));
+
+module.exports = app;
