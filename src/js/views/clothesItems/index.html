@@ -9,9 +9,6 @@
 
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
-    <li class="sidebar-brand">
-      <h4>Filters</h4>
-    </li>
     <li>
       <form class="filters" ng-submit="clothesItems.filter()">
         <label for="category" >Category</label><br>
@@ -20,14 +17,14 @@
           <option value="jumpers">Jumpers</option>
           <option value="skirts">Skirts</option>
           <option value="shirts">Shirts</option>
-        </select><br />
+        </select><br>
         <label>Gender</label><br>
         <select name="sex" ng-model="clothesItems.filters.sex">
           <option value="female">Female</option>
           <option value="male">Male</option>
           <option value="unisex">Unisex</option>
-        </select><br />
-        <input id="filters-submit" type="submit" name="name" value="Update">
+        </select>
+        <input id="filters-submit" type="submit" name="name" value="Update"><br />
       </form>
     </li>
   </ul>
