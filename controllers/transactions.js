@@ -1,9 +1,9 @@
 module.exports = {
   create:     transactionsCreate,
-  swishback:  transactionsSwishback,
-  approve:    transactionsApprove,
-  reject:     transactionsReject,
-  cancel:     transactionsCancel
+  swishback:  transactionsSwishback
+  // approve:    transactionsApprove,
+  // reject:     transactionsReject,
+  // cancel:     transactionsCancel
 };
 
 const Transaction = require('../models/transaction');
@@ -23,7 +23,7 @@ function transactionsSwishback(req, res){
     return res.status(200).json({ transaction });
   });
 }
-// 
+//
 // function transactionsApprove(){
 //
 // }
