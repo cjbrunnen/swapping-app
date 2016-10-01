@@ -5,7 +5,6 @@ angular
 MainCtrl.$inject = ["$rootScope", "CurrentUserService", "$state"];
 function MainCtrl($rootScope, CurrentUserService, $state) {
   const vm = this;
-
   vm.user = CurrentUserService.getUser();
 
   $rootScope.$on("loggedIn", () => {
@@ -23,5 +22,17 @@ function MainCtrl($rootScope, CurrentUserService, $state) {
     $state.go("home");
   });
 
+  vm.toggleBurger = toggleBurger;
+  function toggleBurger(){
+    $('.navbar-toggle').click();
+  }
 
+  vm.toggleFilter = toggleFilter;
+  function toggleFilter(){
+    event.stopPropagation();
+    event.preventDefault();
+    console.log("clicked");
+    $("#menu-toggle").toggleClass("clicked");
+    $("#sidebar-wrapper").toggleClass("active");
+  }
 }

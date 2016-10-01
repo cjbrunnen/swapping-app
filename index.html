@@ -12,37 +12,39 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <button type="button" ng-show="main.user" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" ui-sref-active ui-sref="clothesItemsIndex"><img src="/images/Logo.png" alt="swish-list-logo" /></a>
+          <a class="navbar-brand" ng-hide="main.user"><img src="/images/Logo.png" alt="swish-list-logo" /></a>
+          <a id="mobile-logo" ng-show="main.user" class="navbar-brand"><img src="/images/Logo.png" alt="swish-list-logo" /></a>
+          <a id="active-logo" class="navbar-brand nav-bar-links" ng-show="main.user" ui-sref-active ui-sref="clothesItemsIndex" ><img src="/images/Logo.png" ng-click="main.removeBurger(e)" alt="swish-list-logo" /></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul ng-show="main.user" class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#" ui-sref="clothesItemsIndex" ui-sref-active >Browse Clothes</a>
+            <li ng-click="main.toggleBurger()">
+              <a class="nav-bar-links"  href="#" ui-sref="clothesItemsIndex" ui-sref-active>Browse Clothes</a>
+            </li>
+            <li ng-click="main.toggleBurger()">
+              <a class="nav-bar-links"  href="#" ui-sref="clothesItemsNew" ui-sref-active>Add an item</a>
+            </li>
+            <li ng-click="main.toggleBurger()">
+              <a class="nav-bar-links"  href="#" ui-sref="usersWardrobeShow" ui-sref-active>Wardrobe</a>
+            </li>
+            <li ng-click="main.toggleBurger()">
+              <a class="nav-bar-links"  href="#" ui-sref="usersIncomingShow" ui-sref-active>Incoming Swishes</a>
+            </li>
+            <li ng-click="main.toggleBurger()">
+              <a class="nav-bar-links"  href="#" ui-sref="usersOutgoingShow" ui-sref-active >Outgoing Swishes</a>
             </li>
             <li>
-              <a href="#" ui-sref="clothesItemsNew" ui-sref-active >Add an item</a>
+              <a class="nav-bar-links"  href="#" ui-sref="usersArchiveShow" ui-sref-active >Archive</a>
             </li>
             <li>
-              <a href="#" ui-sref="usersWardrobeShow" ui-sref-active >Wardrobe</a>
-            </li>
-            <li>
-              <a href="#" ui-sref="usersIncomingShow" ui-sref-active >Incoming Swishes</a>
-            </li>
-            <li>
-              <a href="#" ui-sref="usersOutgoingShow" ui-sref-active >Outgoing Swishes</a>
-            </li>
-            <li>
-              <a href="#" ui-sref="usersArchiveShow" ui-sref-active >Archive</a>
-            </li>
-            <li>
-              <a href="#" ng-click="main.logout()">Logout</a>
+              <a class="nav-bar-links" href="#" ng-click="main.logout()">Logout</a>
             </li>
           </ul>
         </div>
@@ -51,8 +53,11 @@
   </header>
 
   <main ui-view class="container">
-
-
   </main>
+
+  <footer>
+    <h3>&copy; Abi, Caz & Johnnie</h1>
+  </footer>
+
 </body>
 </html>

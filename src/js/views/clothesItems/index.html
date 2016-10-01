@@ -1,7 +1,34 @@
-<h2>All items</h2>
+<h2>ALL ITEMS</h2>
+<a id="menu-toggle" ng-click="main.toggleFilter()" href="#">Filters</a>
 <ul class="clothes-index">
   <li ng-repeat="item in clothesItems.items track by $index" ui-sref="clothesItemsShow({ id: item._id })">
     <img ng-src="{{item.image}}" alt="" />
     <h4>{{item.title}}</h4>
   </li>
 </ul>
+
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <h4>Filters</h4>
+    </li>
+    <li>
+      <form class="filters" ng-submit="clothesItems.filter()">
+        <label for="category" >Category</label><br>
+        <select id="category" name="categories" ng-model="clothesItems.filters.category">
+          <option value="jeans">Jeans</option>
+          <option value="jumpers">Jumpers</option>
+          <option value="skirts">Skirts</option>
+          <option value="shirts">Shirts</option>
+        </select><br />
+        <label>Gender</label><br>
+        <select name="sex" ng-model="clothesItems.filters.sex">
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="unisex">Unisex</option>
+        </select><br />
+        <input id="filters-submit" type="submit" name="name" value="Update">
+      </form>
+    </li>
+  </ul>
+</div>
