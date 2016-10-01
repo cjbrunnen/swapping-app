@@ -26,12 +26,12 @@ router.route('/transactions')
 .post(transactions.create);
 router.route('/transactions/:id/swishback')
 .put(transactions.swishback);
-router.route('/transactions/:id/swishback')
-.put(transactions.approve);
-router.route('/transactions/:id/swishback')
-.put(transactions.reject);
-router.route('/transactions/:id/swishback')
-.put(transactions.cancel);
+router.route('/transactions/:id/approve')
+.put(transactions.swishback);
+router.route('/transactions/:id/reject')
+.put(transactions.swishback);
+router.route('/transactions/:id/cancel')
+.put(transactions.swishback);
 
 
 
