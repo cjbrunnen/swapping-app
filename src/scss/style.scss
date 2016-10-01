@@ -22,6 +22,7 @@ header {
   }
 }
 
+
 div.home-page {
   background-image: url("../images/Hero1.png");
   background-size: cover;
@@ -61,8 +62,9 @@ and (max-device-width : 667px) {
     background: none;
     form {
       padding-top: 5px;
+      padding-bottom: 0;
       width: 100%;
-      margin-right: 20px;
+      margin-right: 22px;
     }
   }
   header {
@@ -82,5 +84,8 @@ and (max-device-width : 667px) {
       background-color: transparent;
       border: 1px solid transparent;
       border-radius: 4px;
+  }
+  form.add-item{
+    width: 300px;
   }
 }
