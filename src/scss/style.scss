@@ -80,6 +80,20 @@ div.home-page {
 @media only screen
 and (min-device-width : 375px)
 and (max-device-width : 667px) {
+  .navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+  a {
+    padding: 0;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+}
+.navbar .navbar-collapse {
+  text-align: center;
+}
   a#active-logo{
     display: none;
   }
