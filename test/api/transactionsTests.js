@@ -1,10 +1,15 @@
+/*
+ *  Transaction (swish) tests.
+ *  To add transaction update.
+ */
+
 require('../spec_helper');
 
 const Transaction = require("../../models/transaction");
 const ClothesItem = require("../../models/clothesItem");
-const User = require("../../models/user");
+const User        = require("../../models/user");
 
-describe("Transactions Controller Test", function() {
+describe("=============================\r\n  Transactions Controller Tests\r\n  =============================", function() {
 
   beforeEach(done => {
     const user1 = new User({
@@ -80,8 +85,8 @@ describe("Transactions Controller Test", function() {
   });
 
 
-  describe("POST /api/transactions", function(done) {
-    it("should return a 201 when a new transaction is passed in", done => {
+  describe("\r\nTask POST to /api/transactions\r\n", function(done) {
+    it("Returns a 201 when a new transaction is created.", done => {
       api.post(`/api/transactions`)
       .set('Accept', 'application/json')
       .set("Authorization", `Bearer ${TOKEN}`)
@@ -94,15 +99,44 @@ describe("Transactions Controller Test", function() {
         }
       })
       .end((err, transaction) => {
-        console.log(transaction);
+        console.log("");
+        console.log(`Transaction ID: ${transaction.body.transaction._id}`);
+        console.log(`Initiator ID:   ${transaction.body.transaction.initiator}`);
+        console.log("");
         done();
       });
-
     });
   });
 
+  describe("\r\nTask PUT swishback to /api/transactions\r\n", function(done) {
+    it("Returns a 200 when a new transaction is created.", done => {
+      api.post(`/api/transactions`)
+      .set('Accept', 'application/json')
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send({
+        transaction : {
+          initiator:      INITIATORID,
+          responder:      RESPONDERID,
+          initial_item:   INITIALITEMID,
+          response_item:  RESPONSEITEMID,
+          status:         2
+        }
+      })
+      .end((err, transaction) => {
+        console.log("");
+        console.log(`Response Item ID: ${transaction.body.transaction.response_item}`);
+        console.log(`Status Code:      ${transaction.body.transaction.status}`);
+        console.log("");
+        done();
+      });
+    });
+  });
+
+
+
   afterEach(done => {
     Transaction.collection.drop();
+    console.log("\r\n  =============================");
     done();
   });
 
