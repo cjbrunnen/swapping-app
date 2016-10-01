@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background: #333;
+  background: #333;
 }
 
 a.navbar-brand {
@@ -29,19 +29,28 @@ div.home-page {
 }
 
 div.formsBox {
-  color: #f5f5f5;
+  color: #333;
+
 }
 
 li.loginForm {
   list-style: none;
-  h3 {
+  padding-right: 40px;
     clear: both;
-  }
+
 }
 
 li.registerForm {
   list-style: none;
-  h3 {
+  padding-right: 40px;
+
     clear: both;
-  }
+
+
+}
+
+#formOne, #formTwo {
+  background-color: rgba(245, 245, 245, .7);
+    padding: 18px;
+    border-radius: 15px;
 }
