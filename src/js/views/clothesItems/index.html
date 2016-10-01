@@ -2,5 +2,6 @@
 <ul class="clothes-index">
   <li ng-repeat="item in clothesItems.items track by $index" ui-sref="clothesItemsShow({ id: item._id })">
     <img ng-src="{{item.image}}" alt="" />
+    <h4>{{item.title}}</h4>
   </li>
 </ul>
