@@ -11,4 +11,5 @@ function ClothesItemsIndexCtrl(ClothesItem){
     .then(data => {
       vm.items = data.clothesItems;
     });
+
 }
