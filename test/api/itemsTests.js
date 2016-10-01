@@ -110,6 +110,16 @@ describe("Clothes Items Controller Test", function() {
       .set('Accept', 'application/json')
       .expect(401, done);
     });
+
+    it("should return a 404 when an authorised user tries to update a non-exsitent item", done =>{
+      api.get(`/api/clothesItems/57efa144acc4d0531560c377`)
+      .set('Accept', 'application/json')
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send({
+      })
+      .expect(404, done);
+    });
+
   });
 
   // POST ACTION HERE
