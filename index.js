@@ -22,7 +22,12 @@ app.use("/api", expressJWT({ secret: config.secret })
   .unless({
     path: [
       { url: "/api/register", methods: ["POST"] },
-      { url: "/api/login",    methods: ["POST"] },
+      { url: "/api/login",    methods: ["POST"] }
+      // { url: "/api/transactions",    methods: ["POST"] },
+      // { url: "/api/transactions/:id/swishback",    methods: ["PUT"] },
+      // { url: "/api/transactions/:id/approve",    methods: ["PUT"] },
+      // { url: "/api/transactions/:id/reject",    methods: ["PUT"] },
+      // { url: "/api/transactions/:id/reject",    methods: ["PUT"] },
     ]
   }));
 app.use(jwtErrorHandler);
