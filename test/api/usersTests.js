@@ -91,6 +91,20 @@ describe("Users Controller Test", function() {
       .expect(200, done);
     });
 
+    it("should return a JSON object", function(done) {
+      api
+      .put(`/api/users/${ID}`)
+      .set("Accept", "application/json")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send({
+        username: "test2"
+      })
+      .end((err, res) => {
+        expect(res.body).to.be.an("object");
+        done();
+      });
+    });
+
     it("should return a 401 when an unauthorised user updates an exisitng item", done =>{
       api.put(`/api/users/${ID}`)
       .set('Accept', 'application/json')
