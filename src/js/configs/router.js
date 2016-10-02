@@ -25,7 +25,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   .state('usersWardrobeShow', {
     url: '/user/wardrobe',
     templateUrl: '/js/views/users/wardrobeShow.html',
-    // controller: 'WardrobeShowCtrl as wardrobe'
+    controller: 'WardrobeShowCtrl as wardrobe'
   })
   .state('usersIncomingShow', {
     url: '/user/inbox',
