@@ -5,7 +5,6 @@
   <li ng-repeat="item in wardrobe.items track by $index" ui-sref="wardrobeShow({ id: item._id })">
     <img ng-src="{{item.image}}" alt="" />
     <h4>{{item.title}}</h4>
-    {{item.owner}}
   </li>
 </ul>
 
