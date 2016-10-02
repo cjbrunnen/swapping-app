@@ -203,6 +203,7 @@ ul.clothes-index {
       background: #f7996e;
       color: white;
       font-weight: bold;
+      &:focus {outline:0;}
     }
     label {
       margin-top: 10px;
