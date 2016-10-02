@@ -22,9 +22,9 @@
         <select name="sex" ng-model="clothesItems.filters.sex">
           <option value="female">Female</option>
           <option value="male">Male</option>
-          <option value="unisex">Unisex</option>
         </select>
         <input id="filters-submit" type="submit" name="name" value="Update"><br />
+        <input id="filters-clear" type="button" ng-click="clothesItems.clearFilters()" value="Clear"><br />
       </form>
     </li>
   </ul>

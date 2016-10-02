@@ -11,4 +11,39 @@ function ClothesItemsIndexCtrl(ClothesItem){
   .then(data => {
     vm.items = data.clothesItems;
   });
+  vm.clearFilters = clearFilters;
+  function clearFilters(){
+    vm.filters = null;
+    ClothesItem
+    .query()
+    .$promise
+    .then(data => {
+      vm.items = data.clothesItems;
+    });
+  }
+  vm.filter = filter;
+  function filter(){
+    ClothesItem
+    .query()
+    .$promise
+    .then(data => {
+      vm.items = data.clothesItems;
+      for (var i = 0; i < vm.items.length; i++) {
+        if (vm.filters.category){
+          if (vm.items[i].category !== vm.filters.category){
+            vm.items.splice(i, 1);
+            i--;
+          }
+        }
+      }
+      for (var j = 0; j < vm.items.length; j++) {
+        if (vm.filters.sex){
+          if (vm.items[j].sex !== vm.filters.sex && vm.items[j].sex !== "unisex"){
+            vm.items.splice(j, 1);
+            j--;
+          }
+        }
+      }
+    });
+  }
 }
