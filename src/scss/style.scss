@@ -81,19 +81,19 @@ div.home-page {
 and (min-device-width : 375px)
 and (max-device-width : 667px) {
   .navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
-  a {
-    padding: 0;
-    text-transform: uppercase;
-    text-decoration: underline;
-    font-weight: 500;
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    a {
+      padding: 0;
+      text-transform: uppercase;
+      text-decoration: underline;
+      font-weight: 500;
+    }
   }
-}
-.navbar .navbar-collapse {
-  text-align: center;
-}
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
   a#active-logo{
     display: none;
   }
@@ -186,8 +186,9 @@ ul.clothes-index {
   right: 0;
   top: 730px;
   width: 250px;
-  border-radius: 20px 0 0 0;
-  background: rgba(255,255,255,0.3);
+  border-radius: 10px 0 0 0;
+  border: 1px solid black;
+  background: #f5f5f5;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -232,7 +233,7 @@ ul.clothes-index {
       height: 40px;
       line-height: 40px;
       font-size: 18px;
-      }
+    }
   }
 }
 
