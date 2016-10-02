@@ -44,6 +44,7 @@ function ClothesItemsIndexCtrl(ClothesItem){
           }
         }
       }
+      if (vm.items.length === 0){vm.items = null;}
     });
   }
 }
