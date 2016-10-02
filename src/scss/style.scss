@@ -46,9 +46,9 @@ header {
 div.home-page {
   background-image: url("../images/Hero1.png");
   background-size: cover;
-  max-height: 600px;
-  padding-bottom: 300px;
-  padding-top: 30px;
+  max-height: 540px;
+  padding-bottom: 100px;
+  padding-top: 14px;
   text-align: center;
   .login-register{
     .formsBox {
@@ -62,7 +62,7 @@ div.home-page {
             background-color: rgba(245, 245, 245, .9);
             padding: 18px;
             input {
-              height: 30px;
+              height: 32px;
             }
             &#formOne{
               border-radius: 15px 15px 0 0;
