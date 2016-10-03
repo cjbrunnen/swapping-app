@@ -4,27 +4,35 @@
     <p>
       I want
     </p>
-    <li>
-      <img ui-sref="clothesItemsShow({ id : transaction.initial_item.IDHERE})" ng-src="{{ transaction.initial_item.IMAGEhERE }}" alt="" />
-    </li>
+<ul>
+  <li ng-repeat="transaction in outgoing.transactions">
+    <img ui-sref="clothesItemShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}"/>
+  </li>
+</ul>
+
   </div>
   <div class="swish-index-col col-xs-6 col-md-4">
     <p>
       They want
     </p>
-    <li>
-      <img ui-sref="clothesItemsShow({ id : transaction.response_item.IDHERE})" ng-src="{{ transaction.response_item.IMAGEhERE }}" alt="" />
+    <ul>
+    <li ng-repeat="transaction in outgoing.transactions">
+      <img ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
     </li>
-    <!-- <h2 ng-hide"transaction.response_item.id">Pending</h2> -->
+  </ul>
+    <h2 ng-hide="transaction.response_item">Pending</h2>
   </div>
   <div class="swish-index-col col-xs-6 col-md-4">
     <p>
       Status
     </p>
-    <button type="button" ng-click="outgoing.approve()">Accept</button>
-    <button type="button">Reject</button>
-    <button type="button">Cancel</button>
+    <ul>
+      <li>
+        <button type="button" ng-click="outgoing.approve()">Accept</button>
+        <button type="button">Reject</button>
+        <button type="button">Cancel</button>
+      </li>
+    </ul>
   </div>
-  {{ vm.transactions }}
 
 </div>

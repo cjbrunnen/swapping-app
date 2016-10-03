@@ -6,10 +6,10 @@ OutgoingShowCtrl.$inject = ["Transaction", "CurrentUserService", "$stateParams",
 function OutgoingShowCtrl(Transaction, CurrentUserService, $stateParams, $state){
   const vm = this;
   Transaction
-  .query()
+  .query({ initiator : CurrentUserService.getUser().id})
   .$promise
   .then(data => {
-    vm.swishes = data.transactions;
+    vm.transactions = data.transactions;
   });
 
   vm.approve = () => {
