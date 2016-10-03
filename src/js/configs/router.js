@@ -50,7 +50,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   .state('usersArchiveShow', {
     url: '/user/archive',
     templateUrl: '/js/views/users/completedShow.html',
-    // controller: 'ArchiveShowCtrl as archive'
+    controller: 'ArchiveShowCtrl as archive'
   })
   ;
 

@@ -9,7 +9,7 @@ angular
     .query()
     .$promise
     .then(data => {
-      console.log(data);
+      console.log(this);
       vm.transactions = data.transactions;
       for (var i = 0; i < vm.transactions.length; i++) {
         if (vm.transactions[i].responder !== CurrentUserService.getUser().id){
