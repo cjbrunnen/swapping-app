@@ -17,6 +17,7 @@ function clothesItemsIndex(req, res) {
 
 function clothesItemsCreate(req, res) {
   const clothesItem = new ClothesItem(req.body.clothesItem);
+  clothesItem.owner = req.user._id;
   clothesItem.save((err, clothesItem) => {
     if (err) return res.status(500).json({ messsage: "Something went wrong." });
     return res.status(201).json({ clothesItem });

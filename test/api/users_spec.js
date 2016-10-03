@@ -4,8 +4,10 @@ const User = require("../../models/user");
 
 describe("Users Controller Test", function() {
 
+  let user;
+
   beforeEach(done => {
-    const user = new User({
+    user = new User({
       username: "test",
       email: "test@test.com",
       password: "password",
@@ -19,7 +21,6 @@ describe("Users Controller Test", function() {
         email: "test@test.com",
         password: "password"
       }).end((err, res) => {
-        ID = res.body.user._id;
         TOKEN = res.body.token;
         done();
       });
@@ -28,13 +29,13 @@ describe("Users Controller Test", function() {
 
   /// GET ACTIONS HERE (SHOW)
 
-  describe("GET /api/users/ID (SHOW)", function(done) {
+  describe("GET /api/users/:id (SHOW)", function(done) {
 
     //INDEX TESTS
 
     it("should return a 200 response", function(done) {
       api
-      .get(`/api/users/${ID}`)
+      .get(`/api/users/${user._id}`)
       .set("Accept", "application/json")
       .set("Authorization", `Bearer ${TOKEN}`)
       .expect(200, done);
@@ -42,14 +43,14 @@ describe("Users Controller Test", function() {
 
     it("should return a 401 response when no token is provided in the header", function(done) {
       api
-      .get(`/api/users/${ID}`)
+      .get(`/api/users/${user._id}`)
       .set("Accept", "application/json")
       .expect(401, done);
     });
 
     it("should return a JSON object", function(done) {
       api
-      .get(`/api/users/${ID}`)
+      .get(`/api/users/${user._id}`)
       .set("Accept", "application/json")
       .set("Authorization", `Bearer ${TOKEN}`)
       .end((err, res) => {
@@ -58,10 +59,9 @@ describe("Users Controller Test", function() {
       });
     });
 
-
     it("should return an object with the following properties", done => {
       api
-      .get(`/api/users/${ID}`)
+      .get(`/api/users/${user._id}`)
       .set('Accept', 'application/json')
       .set("Authorization", `Bearer ${TOKEN}`)
       .end((err, res) => {
@@ -82,7 +82,7 @@ describe("Users Controller Test", function() {
   describe( "PUT /api/users:/id", function(done) {
 
     it("should return a 200 when an authorised users updates their profile", done =>{
-      api.put(`/api/users/${ID}`)
+      api.put(`/api/users/${user._id}`)
       .set('Accept', 'application/json')
       .set("Authorization", `Bearer ${TOKEN}`)
       .send({
@@ -93,7 +93,7 @@ describe("Users Controller Test", function() {
 
     it("should return a JSON object", function(done) {
       api
-      .put(`/api/users/${ID}`)
+      .put(`/api/users/${user._id}`)
       .set("Accept", "application/json")
       .set("Authorization", `Bearer ${TOKEN}`)
       .send({
@@ -106,7 +106,7 @@ describe("Users Controller Test", function() {
     });
 
     it("should return a 401 when an unauthorised user updates an exisitng item", done =>{
-      api.put(`/api/users/${ID}`)
+      api.put(`/api/users/${user._id}`)
       .set('Accept', 'application/json')
       .set("Authorization", `Bearer ${TOKEN}`)
       .send({
@@ -129,7 +129,7 @@ describe("Users Controller Test", function() {
   });
 
   afterEach(done => {
-    User.collection.drop();
+    User.collection.remove();
     done();
   });
 
