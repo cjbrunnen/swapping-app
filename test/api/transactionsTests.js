@@ -95,13 +95,14 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
       .set("Authorization", `Bearer ${TOKEN}`)
       .send({
         transaction : {
-          initiator:      INITIATORID,
+          initiator:     INITIATORID,
           responder:     RESPONDERID,
           initial_item:  INITIALITEMID,
           status:        1
         }
       })
       .end((err, transaction) => {
+        TRANSACTIONID = transaction.body.transaction._id;
         console.log("");
         console.log(`Transaction ID: ${transaction.body.transaction._id}`);
         console.log(`Initiator ID:   ${transaction.body.transaction.initiator}`);
@@ -113,8 +114,8 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
 
   // Swishback/edit/update transactions test.
   describe("\r\nTask PUT swishback to /api/transactions\r\n", function(done) {
-    it("Returns a 200 when a new transaction is created.", done => {
-      api.post(`/api/transactions`)
+    it("Returns a 200 when a new transaction is updated.", done => {
+      api.put(`/api/transactions/${TRANSACTIONID}/swishback`)
       .set('Accept', 'application/json')
       .set("Authorization", `Bearer ${TOKEN}`)
       .send({
@@ -128,8 +129,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
       })
       .end((err, transaction) => {
         console.log("");
-        console.log(`Response Item ID: ${transaction.body.transaction.response_item}`);
-        console.log(`Status Code:      ${transaction.body.transaction.status}`);
+        console.log(transaction.body.transaction);
         console.log("");
         done();
       });
@@ -138,12 +138,10 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
 
   // Transactions approve test
   describe("\r\nTask PUT approve to /api/transactions/:id/approve\r\n", function(done) {
-    
   });
 
   // Transactions reject test
   describe("\r\nTask PUT reject to /api/transactions/:id/reject\r\n", function(done) {
-
   });
 
   // Transactions cancel test
@@ -151,7 +149,9 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
 
   });
   afterEach(done => {
-    Transaction.collection.drop();
+    User.collection.drop();
+    ClothesItem.collection.drop();
+    // Transaction.collection.drop();
     console.log("\r\n  =============================");
     done();
   });
