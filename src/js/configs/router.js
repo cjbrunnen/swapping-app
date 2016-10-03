@@ -52,6 +52,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     templateUrl: '/js/views/users/completedShow.html',
     controller: 'ArchiveShowCtrl as archive'
   })
+  .state('swishbackIndex', {
+    url: '/:ownerid/wardrobe',
+    templateUrl: '/js/views/swishbacks/index.html',
+    controller: 'SwishbackIndexCtrl as swishback'
+  })
+  .state('swishbackShow', {
+    url: '/:ownerid/wardrobe/:itemid',
+    templateUrl: '/js/views/swishbacks/show.html',
+    controller: 'SwishbackShowCtrl as swishback'
+  })
   ;
 
   $urlRouterProvider.otherwise("/");
