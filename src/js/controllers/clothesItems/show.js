@@ -6,10 +6,11 @@ ClothesItemsShowCtrl.$inject = ["ClothesItem", "CurrentUserService", "$statePara
 function ClothesItemsShowCtrl(ClothesItem, CurrentUserService, $stateParams, $state){
   const vm = this;
   ClothesItem.get($stateParams, data => {
-    console.log(data);
     vm.item = data.clothesItem;
     vm.user = CurrentUserService.getUser();
   });
+
+  
 
   // vm.filmDelete = () => {
   //   Film
