@@ -1,12 +1,12 @@
 @import "bower";
 
 html {
-    overflow: scroll;
-    overflow-x: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 body {
@@ -19,6 +19,7 @@ body {
 //   width: 250px;
 //   height: 300px;
 // }
+
 
 ul {
   li{
@@ -38,6 +39,9 @@ and (max-device-width : 667px) {
   .high {
     height: 100px;
   }
+
+}
+
 
 h2 {
   margin-top: 5px;
