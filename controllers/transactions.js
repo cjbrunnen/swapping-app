@@ -32,7 +32,8 @@ function transactionsApprove(){
 
 // Change 'status' to 4.
 function transactionsReject(){
-  Transaction.findByIdAndUpdate(req.params.id, { status: 4 }, { new: true }, (err, transaction) => {
+  Transaction.findByIdAndUpdate(req.params.id, { status: 4 }, (err, transaction) => {
+    console.log("working");
     if (err) return res.status(500).json({ err });
     if (!transaction) return res.status(404).json({ message: "Swish not found" });
     return res.status(200).json({ transaction });
