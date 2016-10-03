@@ -1,4 +1,4 @@
-<div class="items-show">
+<div class="items-show" ng-cloak>
   <img ng-src="{{ clothesItems.item.image }}">
   <ul>
     <li><h1>{{ clothesItems.item.title }}</h1></li>
@@ -7,7 +7,7 @@
     <li><p>Sex: {{clothesItems.item.sex}}</p></li>
   </ul>
 </div>
-<ul class="list-inline nav-buttons">
+<ul class="list-inline nav-buttons" ng-cloak>
 
   <li><a class="btn btn-default" ng-show="(main.user.id == clothesItems.item.owner)" ui-sref="clothesItemsEdit({id: clothesItems.item._id})">Edit</a></li>
   <li><button class="swish-button btn" ng-show="(main.user.id != clothesItems.item.owner)"><a  ui-sref="usersOutgoingShow">SWISH</a></button></li>
