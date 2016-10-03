@@ -6,7 +6,7 @@
     </p>
     <ul>
       <li ng-repeat="transaction in incoming.transactions">
-        <img ui-sref="clothesItemsShow({ id : transaction.initial_item.id})" ng-src="{{ transaction.initial_item.image }}" alt="" />
+        <img ui-sref="clothesItemsShow({ id : transaction.initial_item._id})" ng-src="{{ transaction.initial_item.image }}" alt="" />
       </li>
     </ul>
   </div>
@@ -16,7 +16,7 @@
     </p>
     <ul>
       <li ng-repeat="transaction in incoming.transactions">
-        <img ui-sref="clothesItemsShow({ id : transaction.response_item.id})" ng-src="{{ transaction.response_item.image }}" alt="" />
+        <img ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" alt="" />
       </li>
     </ul>
   </div>
