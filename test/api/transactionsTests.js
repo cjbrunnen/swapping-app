@@ -112,7 +112,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
-  // Swishback/edit/update transactions test.
+    // Swishback/edit/update transactions test.
   describe("\r\nTask PUT swishback to /api/transactions\r\n", function(done) {
     it("Returns a 200 when a new transaction is updated.", done => {
       api.put(`/api/transactions/${TRANSACTIONID}/swishback`)
@@ -131,6 +131,15 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
         console.log("");
         console.log(transaction.body.transaction);
         console.log("");
+        expect(transaction.body)
+        .to.have.property("transaction")
+        .and.have.any.keys([
+          'initiator',
+          'responder',
+          'initial_item',
+          'response_item',
+          'status'
+        ]);
         done();
       });
     });
@@ -138,16 +147,19 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
 
   // Transactions approve test
   describe("\r\nTask PUT approve to /api/transactions/:id/approve\r\n", function(done) {
+    
   });
 
   // Transactions reject test
   describe("\r\nTask PUT reject to /api/transactions/:id/reject\r\n", function(done) {
+
   });
 
   // Transactions cancel test
   describe("\r\nTask PUT cancel to /api/transactions/:id/cancel\r\n", function(done) {
 
   });
+
   afterEach(done => {
     User.collection.drop();
     ClothesItem.collection.drop();
