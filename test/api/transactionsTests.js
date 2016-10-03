@@ -145,13 +145,28 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
-  // Transactions approve test
-  describe("\r\nTask PUT approve to /api/transactions/:id/approve\r\n", function(done) {
-    
-  });
-
   // Transactions reject test
   describe("\r\nTask PUT reject to /api/transactions/:id/reject\r\n", function(done) {
+    it("Returns a 200 when a new transaction is updated.", done => {
+      api.put(`/api/transactions/${TRANSACTIONID}/reject`)
+      .set('Accept', 'application/json')
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send({
+        transaction : {
+          status: 4
+        }
+      })
+      .end((err, transaction) => {
+        console.log("");
+        console.log(transaction.body.transaction);
+        console.log("");
+        done();
+      });
+    });
+  });
+
+  // Transactions approve test
+  describe("\r\nTask PUT approve to /api/transactions/:id/approve\r\n", function(done) {
 
   });
 
