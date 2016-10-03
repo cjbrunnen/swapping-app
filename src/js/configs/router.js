@@ -22,6 +22,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     templateUrl: '/js/views/clothesItems/new.html',
     controller: 'ClothesItemsNewCtrl as clothesItems'
   })
+  .state("clothesItemEdit", {
+  url: "/clothesItems/:id/edit",
+  templateUrl: "/js/views/clothesItems/edit.html",
+  controller: "ClothesItemsEditCtrl as clothesItems"
+  })
   .state('usersWardrobeShow', {
     url: '/user/wardrobe',
     templateUrl: '/js/views/users/wardrobeShow.html',
