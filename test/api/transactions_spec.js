@@ -8,7 +8,7 @@ const Transaction = require("../../models/transaction");
 const ClothesItem = require("../../models/clothesItem");
 const User        = require("../../models/user");
 
-describe("=============================\r\n  Transactions Controller Tests\r\n  =============================", function() {
+describe("=============================  Transactions Controller Tests  =============================", function() {
 
   beforeEach(done => {
     const user1 = new User({
@@ -62,8 +62,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
       description:  "These stonewashed jeans are tight fitting and lovely",
       category:     "Jeans",
       sex:          "Male",
-      image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg",
-      available:    true
+      image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg"
     });
     item.save((err, item) => {
       INITIALITEMID = item._id;
@@ -78,8 +77,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
       description:  "These jumper is scratchy",
       category:     "Jumper",
       sex:          "Male",
-      image:        "http://coolspotters.com/files/photos/813074/topman-jumper-profile.jpg",
-      available:    true
+      image:        "http://coolspotters.com/files/photos/813074/topman-jumper-profile.jpg"
     });
     item.save((err, item) => {
       RESPONSEITEMID = item._id;
@@ -88,7 +86,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
   });
 
     // Create transaciton test.
-    describe("\r\nTask POST to /api/transactions\r\n", function(done) {
+    describe("Task POST to /api/transactions", function(done) {
       it("Returns a 201 when a new transaction is created.", done => {
         api.post(`/api/transactions`)
         .set('Accept', 'application/json')
@@ -113,7 +111,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
 
     // Create transaction unauthorised test.
-    it("\r\nTask POST to /api/transactions as an unauthorised user.\r\n", done => {
+    it("Task POST to /api/transactions as an unauthorised user.", done => {
       api.post(`/api/transactions`)
       .set('Accept', 'application/json')
       .send({
@@ -128,7 +126,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
 
     // Swishback/edit/update transactions test.
-    describe("\r\nTask PUT swishback to /api/transactions\r\n", function(done) {
+    describe("Task PUT swishback to /api/transactions", function(done) {
       it("Returns a 200 when a new transaction is updated.", done => {
         api.put(`/api/transactions/${TRANSACTIONID}/swishback`)
         .set('Accept', 'application/json')
@@ -161,7 +159,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
 
     // Swishback/edit/update transactions unauthorised test.
-    describe("\r\nTask PUT swishback to /api/transactions as an unauthorised user.\r\n", function(done) {
+    describe("Task PUT swishback to /api/transactions as an unauthorised user.", function(done) {
       it("Returns a 401 when a new transaction is updated.", done => {
         api.put(`/api/transactions/${TRANSACTIONID}/swishback`)
         .set('Accept', 'application/json')
@@ -178,7 +176,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
 
   // Transactions reject test
-  // describe("\r\nTask PUT reject to /api/transactions/:id/reject\r\n", function(done) {
+  // describe("Task PUT reject to /api/transactions/:id/reject", function(done) {
     // it("Returns a 200 when a new transaction is updated.", done => {
     //   api.put(`/api/transactions/${TRANSACTIONID}/reject`)
     //   .set('Accept', 'application/json')
@@ -195,20 +193,20 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
   // });
 
   // Transactions approve test
-  describe("\r\nTask PUT approve to /api/transactions/:id/approve\r\n", function(done) {
+  describe("Task PUT approve to /api/transactions/:id/approve", function(done) {
 
   });
 
   // Transactions cancel test
-  describe("\r\nTask PUT cancel to /api/transactions/:id/cancel\r\n", function(done) {
+  describe("Task PUT cancel to /api/transactions/:id/cancel", function(done) {
 
   });
 
   afterEach(done => {
-    User.collection.drop();
-    ClothesItem.collection.drop();
-    // Transaction.collection.drop();
-    console.log("\r\n  =============================");
+    User.collection.remove();
+    ClothesItem.collection.remove();
+    Transaction.collection.remove();
+    // console.log("  =============================");
     done();
   });
 });

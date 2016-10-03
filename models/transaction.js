@@ -5,7 +5,7 @@ const transactionSchema = new mongoose.Schema({
   responder:        { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   initial_item:     { type: mongoose.Schema.Types.ObjectId, ref: "ClothesItem" },
   response_item:    { type: mongoose.Schema.Types.ObjectId, ref: "ClothesItem" },
-  status:           { type: Number }
+  status:           { type: Number, enum: [1,2,3,4], required: true, default: 1 }
 }, {
   timestamps: true
 });

@@ -5,8 +5,10 @@ const User = require("../../models/user");
 
 describe("Clothes Items Controller Test", function() {
 
+  let user;
+
   beforeEach(done => {
-    const user = new User({
+    user = new User({
       username: "test",
       email: "test@test.com",
       password: "password",
@@ -147,8 +149,7 @@ describe("Clothes Items Controller Test", function() {
           description:  "These stonewashed jeans are tight fitting and lovely",
           category:     "Jeans",
           sex:          "Male",
-          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg",
-          available:    true
+          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg"
         }
       })
       .expect(201, done);
@@ -163,8 +164,7 @@ describe("Clothes Items Controller Test", function() {
           description:  "These stonewashed jeans are tight fitting and lovely",
           category:     "Jeans",
           sex:          "Male",
-          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg",
-          available:    true
+          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg"
         }
       })
       .expect(401, done);
@@ -181,8 +181,7 @@ describe("Clothes Items Controller Test", function() {
           description:  "These stonewashed jeans are tight fitting and lovely",
           category:     "Jeans",
           sex:          "Male",
-          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg",
-          available:    true
+          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg"
         }
       })
       .end((err, res) => {
@@ -191,6 +190,50 @@ describe("Clothes Items Controller Test", function() {
       });
     });
 
+    it("should return an available object", function(done) {
+      api
+      .post(`/api/clothesItems`)
+      .set("Accept", "application/json")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send({
+        clothesItem : {
+          title:        "Diesel Jeans",
+          description:  "These stonewashed jeans are tight fitting and lovely",
+          category:     "Jeans",
+          sex:          "Male",
+          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg"
+        }
+      })
+      .end((err, res) => {
+        expect(res.body).to.be.an("object");
+        expect(res.body.clothesItem).to.be.an("object");
+        expect(res.body.clothesItem).to.have.property("available");
+        expect(res.body.clothesItem.available).to.equal(true);
+        done();
+      });
+    });
+    it("should be owned by the current user", function(done) {
+      api
+      .post(`/api/clothesItems`)
+      .set("Accept", "application/json")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send({
+        clothesItem : {
+          title:        "Diesel Jeans",
+          description:  "These stonewashed jeans are tight fitting and lovely",
+          category:     "Jeans",
+          sex:          "Male",
+          image:        "http://i.ebayimg.com/images/g/RfsAAOSwq7JT9Ygz/s-l300.jpg"
+        }
+      })
+      .end((err, res) => {
+        expect(res.body).to.be.an("object");
+        expect(res.body.clothesItem).to.be.an("object");
+        expect(res.body.clothesItem).to.have.property("owner");
+        expect(res.body.clothesItem.owner).to.equal(user.id);
+        done();
+      });
+    });
   });
 
 
@@ -316,7 +359,8 @@ describe("Clothes Items Controller Test", function() {
   });
 
   afterEach(done => {
-    ClothesItem.collection.drop();
+    ClothesItem.collection.remove();
+    User.collection.remove();
     done();
   });
 

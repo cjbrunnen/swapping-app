@@ -9,6 +9,7 @@ angular
     return {
       user: currentUser,
       saveUser(user) {
+        user.id     = user.id ? user.id : user._id;
         currentUser = user;
         $rootScope.$broadcast("loggedIn");
       },
