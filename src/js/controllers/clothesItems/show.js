@@ -2,8 +2,8 @@ angular
   .module("swishListApp")
   .controller("ClothesItemsShowCtrl", ClothesItemsShowCtrl);
 
-ClothesItemsShowCtrl.$inject = ["ClothesItem", "CurrentUserService", "$stateParams", "$state"];
-function ClothesItemsShowCtrl(ClothesItem, CurrentUserService, $stateParams, $state){
+ClothesItemsShowCtrl.$inject = ["ClothesItem", "Transaction", "CurrentUserService", "$stateParams", "$state"];
+function ClothesItemsShowCtrl(ClothesItem, Transaction, CurrentUserService, $stateParams, $state){
   const vm = this;
   ClothesItem.get($stateParams, data => {
     console.log(data);
@@ -14,6 +14,16 @@ function ClothesItemsShowCtrl(ClothesItem, CurrentUserService, $stateParams, $st
   vm.delete = () => {
     ClothesItem
       .delete($stateParams)
+      .$promise
+      .then(data => {
+        $state.go("clothesItemsIndex");
+      });
+  };
+
+  vm.swish = () => {
+    console.log(data);
+    Transaction
+      .save({ transaction: vm.transaction })
       .$promise
       .then(data => {
         $state.go("clothesItemsIndex");
