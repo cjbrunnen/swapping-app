@@ -40,7 +40,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   .state('usersIncomingShow', {
     url: '/user/inbox',
     templateUrl: '/js/views/users/incomingShow.html',
-    // controller: 'IncomingShowCtrl as incoming'
+    controller: 'IncomingShowCtrl as incoming'
   })
   .state('usersOutgoingShow', {
     url: '/user/outbox',
