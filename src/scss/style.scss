@@ -1,5 +1,14 @@
 @import "bower";
 
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 body {
   font-family: 'Helvetica Neue', sans-serif;
   font-weight: 300;
@@ -16,11 +25,16 @@ h2 {
 
 main {
   margin-bottom: 80px;
+  overflow-y: scroll;
 }
 
 a#mobile-logo {
   display: none;
 }
+
+// li#delete-button {
+//   margin-left: 12px;
+// }
 
 header {
   background: #333;
@@ -323,4 +337,8 @@ button.swish-button {
 
 ul.nav-buttons {
   text-align: center;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }

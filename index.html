@@ -24,7 +24,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul ng-show="main.user" class="nav navbar-nav navbar-right">
+          <ul ng-cloak ng-show="main.user" class="nav navbar-nav navbar-right">
             <li ng-click="main.toggleBurger()">
               <a class="nav-bar-links"  href="#" ui-sref="clothesItemsIndex" ui-sref-active>Browse Clothes</a>
             </li>
