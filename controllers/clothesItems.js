@@ -11,7 +11,9 @@ const ClothesItem = require('../models/clothesItem');
 function clothesItemsIndex(req, res) {
   let query = {};
   if (req.query.user) query.owner = req.query.user;
-  ClothesItem.find(query, (err, clothesItems) => {
+  ClothesItem.find(query)
+  .populate("owner")
+  .exec((err, clothesItems) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(200).json({ clothesItems });
   });
