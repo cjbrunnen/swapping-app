@@ -18,6 +18,7 @@ transactionSchema.pre("validate", function(done) {
     .model("ClothesItem")
     .findById(self.initial_item, (err, clothesItem) => {
       if (err) return done(err);
+      console.log(clothesItem);
       self.responder = clothesItem.owner;
       return done();
     });

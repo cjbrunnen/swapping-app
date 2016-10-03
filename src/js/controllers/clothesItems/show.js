@@ -6,7 +6,6 @@ ClothesItemsShowCtrl.$inject = ["ClothesItem", "Transaction", "CurrentUserServic
 function ClothesItemsShowCtrl(ClothesItem, Transaction, CurrentUserService, $stateParams, $state){
   const vm = this;
   ClothesItem.get($stateParams, data => {
-    console.log(data);
     vm.item = data.clothesItem;
     vm.user = CurrentUserService.getUser();
   });
@@ -21,8 +20,11 @@ function ClothesItemsShowCtrl(ClothesItem, Transaction, CurrentUserService, $sta
   };
 
   vm.swish = () => {
+    vm.transaction = {
+      initial_item : vm.item._id
+    };
     Transaction
-      .save({ transaction: vm.transaction })
+      .save({ transaction : vm.transaction })
       .$promise
       .then(data => {
         console.log(data);
