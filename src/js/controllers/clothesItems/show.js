@@ -10,7 +10,7 @@ function ClothesItemsShowCtrl(ClothesItem, CurrentUserService, $stateParams, $st
     vm.user = CurrentUserService.getUser();
   });
 
-  
+
 
   // vm.filmDelete = () => {
   //   Film
