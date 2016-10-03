@@ -6,37 +6,27 @@ WardrobeShowCtrl.$inject = ["ClothesItem", "CurrentUserService"];
 function WardrobeShowCtrl(ClothesItem, CurrentUserService){
   const vm = this;
   ClothesItem
-  .query()
+  .query({ user : CurrentUserService.getUser().id })
   .$promise
   .then(data => {
     vm.items = data.clothesItems;
-    for (var i = 0; i < vm.items.length; i++) {
-      if (vm.items[i].owner !== CurrentUserService.getUser().id){
-        vm.items.splice(i,1);
-        i--;
-      }
-    }
   });
+
   vm.clearFilters = clearFilters;
   function clearFilters(){
     vm.filters = null;
     ClothesItem
-    .query()
+    .query({ user : CurrentUserService.getUser().id })
     .$promise
     .then(data => {
       vm.items = data.clothesItems;
-      for (var i = 0; i < vm.items.length; i++) {
-        if (vm.items[i].owner !== CurrentUserService.getUser().id){
-          vm.items.splice(i,1);
-          i--;
-        }
-      }
     });
   }
+
   vm.filter = filter;
   function filter(){
     ClothesItem
-    .query()
+    .query({ user : CurrentUserService.getUser().id })
     .$promise
     .then(data => {
       vm.items = data.clothesItems;
@@ -54,12 +44,6 @@ function WardrobeShowCtrl(ClothesItem, CurrentUserService){
             vm.items.splice(j, 1);
             j--;
           }
-        }
-      }
-      for (var i = 0; i < vm.items.length; i++) {
-        if (vm.items[i].owner !== CurrentUserService.getUser().id){
-          vm.items.splice(i,1);
-          i--;
         }
       }
       if (vm.items.length === 0){vm.items = null;}

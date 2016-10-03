@@ -9,6 +9,7 @@ angular
     .query({ responder : CurrentUserService.getUser().id})
     .$promise
     .then(data => {
+      console.log(data);
       vm.transactions = data.transactions;
     });
 }
