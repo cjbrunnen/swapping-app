@@ -50,7 +50,17 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   .state('usersArchiveShow', {
     url: '/user/archive',
     templateUrl: '/js/views/users/completedShow.html',
-    // controller: 'ArchiveShowCtrl as archive'
+    controller: 'ArchiveShowCtrl as archive'
+  })
+  .state('swishbackIndex', {
+    url: '/responder/wardrobe',
+    templateUrl: '/js/views/swishbacks/index.html',
+    controller: 'SwishbackIndexCtrl as swishback'
+  })
+  .state('swishbackShow', {
+    url: '/responder/wardrobe/:id',
+    templateUrl: '/js/views/swishbacks/show.html',
+    controller: 'SwishbackShowCtrl as swishback'
   })
   ;
 
