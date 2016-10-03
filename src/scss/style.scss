@@ -1,12 +1,12 @@
 @import "bower";
 
 html {
-    overflow: scroll;
-    overflow-x: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 body {
@@ -15,10 +15,18 @@ body {
   background: #f5f5f5;
 }
 
-img {
-  width: 250px;
-  height: 300px;
+ul {
+  li{
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
+// 
+// .swish-index-col {
+//   height: 300px;
+// }
 
 h2 {
   margin-top: 5px;
