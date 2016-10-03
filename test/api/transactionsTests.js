@@ -1,7 +1,6 @@
 /*
- *  Transaction (swish) tests.
- *  To add transaction update.
- */
+*  Transaction (swish) tests.
+*/
 
 require('../spec_helper');
 
@@ -19,6 +18,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
       passwordConfirmation: "password"
     });
 
+    // Create user 1.
     user1.save((err, user) => {
       api.post('/api/login')
       .set("Accept", "application/json")
@@ -41,6 +41,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
       passwordConfirmation: "password"
     });
 
+    // Create user 2.
     user2.save((err, user) => {
       api.post('/api/login')
       .set("Accept", "application/json")
@@ -54,6 +55,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
+  // Create item 1.
   beforeEach(done => {
     const item = new ClothesItem({
       title:        "Diesel Jeans",
@@ -69,6 +71,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
+  // Create item 2.
   beforeEach(done => {
     const item = new ClothesItem({
       title:        "Topman Jumper",
@@ -84,7 +87,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
-
+  // Create transaciton test.
   describe("\r\nTask POST to /api/transactions\r\n", function(done) {
     it("Returns a 201 when a new transaction is created.", done => {
       api.post(`/api/transactions`)
@@ -108,6 +111,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
+  // Swishback/edit/update transactions test.
   describe("\r\nTask PUT swishback to /api/transactions\r\n", function(done) {
     it("Returns a 200 when a new transaction is created.", done => {
       api.post(`/api/transactions`)
@@ -132,8 +136,20 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
+  // Transactions approve test
+  describe("\r\nTask PUT approve to /api/transactions/:id/approve\r\n", function(done) {
+    
+  });
 
+  // Transactions reject test
+  describe("\r\nTask PUT reject to /api/transactions/:id/reject\r\n", function(done) {
 
+  });
+
+  // Transactions cancel test
+  describe("\r\nTask PUT cancel to /api/transactions/:id/cancel\r\n", function(done) {
+
+  });
   afterEach(done => {
     Transaction.collection.drop();
     console.log("\r\n  =============================");
