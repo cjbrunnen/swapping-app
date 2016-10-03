@@ -13,6 +13,7 @@ function transactionsIndex(req, res) {
   let query = {};
   if (req.query.initiator) query.initiator = req.query.initiator;
   if (req.query.responder) query.responder = req.query.responder;
+  if (req.query.status) query.status = req.query.status;
 
   // Transaction.query({ user: CurrentUser.})
 
