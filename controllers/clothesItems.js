@@ -16,6 +16,7 @@ function clothesItemsIndex(req, res) {
 }
 
 function clothesItemsCreate(req, res) {
+  console.log(req.body.clothesItem);
   const clothesItem = new ClothesItem(req.body.clothesItem);
   clothesItem.owner = req.user._id;
   clothesItem.save((err, clothesItem) => {
@@ -33,10 +34,12 @@ function clothesItemsShow(req, res) {
 }
 
 function clothesItemsUpdate(req, res) {
-  ClothesItem.findByIdAndUpdate(req.params.id, req.body.clothesItem, { new: true },  (err, clothesItem) => {
+  // ClothesItem.findByIdAndUpdate(req.params.id, req.body.clothesItem, { new: true },  (err, clothesItem) => {
+  ClothesItem.findByIdAndUpdate(req.params.id, req.body.clothesItem, (err, clothesItem) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     if (!clothesItem) return res.status(404).json({ message: "ClothesItem not found." });
     return res.status(200).json({ clothesItem });
+
   });
 }
 
