@@ -4,23 +4,31 @@
     <p>
       They want
     </p>
-    <li>
-      <img ui-sref="clothesItemsShow({ id : transaction.initial_item.IDHERE})" ng-src="{{ transaction.initial_item.IMAGEhERE }}" alt="" />
-    </li>
+    <ul>
+      <li ng-repeat="transaction in incoming.transactions">
+        <img ui-sref="clothesItemsShow({ id : transaction.initial_item._id})" ng-src="{{ transaction.initial_item.image }}" alt="" />
+      </li>
+    </ul>
   </div>
   <div class="swish-index-col col-xs-6 col-md-4">
     <p>
       I want
     </p>
-    <li>
-      <img ui-sref="clothesItemsShow({ id : transaction.response_item.IDHERE})" ng-src="{{ transaction.response_item.IMAGEhERE }}" alt="" />
-    </li>
+    <ul>
+      <li ng-repeat="transaction in incoming.transactions">
+        <img ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" alt="" />
+      </li>
+    </ul>
   </div>
   <div class="swish-index-col col-xs-6 col-md-4">
-    <p>
-      Status
-    </p>
-    <button type="button" name="button">Cancel</button>
+    <ul>
+      <li ng-repeat="transaction in incoming.transactions">
+        <p>
+          Status
+        </p>
+        <button type="button" name="button">Cancel</button>
+      </li>
+    </ul>
 
   </div>
 

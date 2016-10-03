@@ -9,7 +9,9 @@ module.exports = {
 const ClothesItem = require('../models/clothesItem');
 
 function clothesItemsIndex(req, res) {
-  ClothesItem.find((err, clothesItems) => {
+  let query = {};
+  if (req.query.user) query.owner = req.query.user;
+  ClothesItem.find(query, (err, clothesItems) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
     return res.status(200).json({ clothesItems });
   });

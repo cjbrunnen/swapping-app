@@ -6,16 +6,10 @@ angular
   function IncomingShowCtrl(Transaction, CurrentUserService){
     const vm = this;
     Transaction
-    .query()
+    .query({ responder : CurrentUserService.getUser().id})
     .$promise
     .then(data => {
-      console.log(this);
+      console.log(data);
       vm.transactions = data.transactions;
-      for (var i = 0; i < vm.transactions.length; i++) {
-        if (vm.transactions[i].responder !== CurrentUserService.getUser().id){
-          vm.transactions.splice(i,1);
-          i--;
-        }
-      }
     });
 }
