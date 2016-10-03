@@ -17,6 +17,17 @@ function transactionsCreate(req, res){
   });
 }
 
+function transactionsCreate(req, res){
+  const transaction = new Transaction(req.body.transaction);
+  transaction.initiator    = req.user._id;
+  transaction.responder    = clothesItems.item.owner;
+  transaction.initial_item = clothesItems.item._id;
+  transaction.save((err, transaction) => {
+    if (err) return res.status(500).json({ message: "Something went wrong" });
+    return res.status(201).json({ transaction });
+  });
+}
+
 function transactionsSwishback(req, res){
   Transaction.findById(req.params.id, (err, transaction) => {
     if (err) return res.status(500).json({ err });
@@ -31,7 +42,6 @@ function transactionsSwishback(req, res){
   });
 }
 
-// Change 'status' to 3 and make items no longer visible.
 // Find all transactons with initial_item and set 'status' to 4.
 function transactionsApprove(req, res){
   Transaction.findById(req.params.id, (err, transaction) => {

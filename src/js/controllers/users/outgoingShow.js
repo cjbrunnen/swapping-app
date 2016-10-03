@@ -10,6 +10,5 @@ function OutgoingShowCtrl(Transaction, CurrentUserService){
   .$promise
   .then(data => {
     vm.swishes = data.transactions;
-    console.log(data);
   });
 }
