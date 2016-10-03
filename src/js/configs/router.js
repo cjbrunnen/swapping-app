@@ -23,9 +23,14 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     controller: 'ClothesItemsNewCtrl as clothesItems'
   })
   .state("clothesItemEdit", {
-  url: "/clothesItems/:id/edit",
-  templateUrl: "/js/views/clothesItems/edit.html",
-  controller: "ClothesItemsEditCtrl as clothesItems"
+    url: "/clothesItems/:id/edit",
+    templateUrl: "/js/views/clothesItems/edit.html",
+    controller: "ClothesItemsEditCtrl as clothesItems"
+  })
+  .state('clothesItemsShow', {
+    url: '/clothesItems/:id',
+    templateUrl: '/js/views/clothesItems/show.html',
+    controller: 'ClothesItemsShowCtrl as clothesItems'
   })
   .state('usersWardrobeShow', {
     url: '/user/wardrobe',
@@ -40,7 +45,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   .state('usersOutgoingShow', {
     url: '/user/outbox',
     templateUrl: '/js/views/users/outgoingShow.html',
-    // controller: 'OutgoingShowCtrl as outgoing'
+    controller: 'OutgoingShowCtrl as outgoing'
   })
   .state('usersArchiveShow', {
     url: '/user/archive',
