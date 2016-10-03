@@ -9,45 +9,52 @@ module.exports = {
 const Transaction = require('../models/transaction');
 
 function transactionsCreate(req, res){
-  const transaction = new Transaction(req.body.transaction);
+  const transaction     = new Transaction(req.body.transaction);
+  transaction.initiator = req.user._id;
   transaction.save((err, transaction) => {
-    if (err) return res.status(500).json({ message: "Something went wrong" });
-    return res.status(201).json({ transaction });
-  });
-}
-
-function transactionsCreate(req, res){
-  const transaction = new Transaction(req.body.transaction);
-  transaction.initiator    = req.user._id;
-  transaction.responder    = clothesItems.item.owner;
-  transaction.initial_item = clothesItems.item._id;
-  transaction.save((err, transaction) => {
-    if (err) return res.status(500).json({ message: "Something went wrong" });
+    if (err) return res.status(500).json({ message: err.message });
     return res.status(201).json({ transaction });
   });
 }
 
 function transactionsSwishback(req, res){
-  Transaction.findByIdAndUpdate(req.params.id, req.body.transaction, { new: true }, (err, transaction) => {
+  Transaction.findById(req.params.id, (err, transaction) => {
     if (err) return res.status(500).json({ err });
     if (!transaction) return res.status(404).json({ message: "Swish not found" });
-    return res.status(200).json({ transaction });
+    if (!req.body.transaction && !req.body.transaction.response_item) return res.status(500).json({ message: "Please include a response item!" });
+    transaction.response_item = req.body.transaction.response_item;
+    transaction.status        = 2;
+    transaction.save((err, transaction) => {
+      if (err) return res.status(500).json({ err });
+      return res.status(200).json({ transaction });
+    });
   });
 }
 
-// Change 'status' to 3 and make items no longer visible.
-// Find all transactions with initial_item and set 'status' to 4.
-function transactionsApprove(){
-
+// Find all transactons with initial_item and set 'status' to 4.
+function transactionsApprove(req, res){
+  Transaction.findById(req.params.id, (err, transaction) => {
+    if (err) return res.status(500).json({ err });
+    if (!transaction) return res.status(404).json({ message: "Swish not found" });
+    if (transaction.status !== 2) return res.status(500).json({ message: "You are unable to approve this swish."});
+    transaction.status = 3;
+    transaction.save((err, transaction) => {
+      if (err) return res.status(500).json({ err });
+      return res.status(200).json({ transaction });
+    });
+  });
 }
 
 // Change 'status' to 4.
-function transactionsReject(){
-  Transaction.findByIdAndUpdate(req.params.id, { status: 4 }, (err, transaction) => {
-    console.log("working");
+function transactionsReject(req, res){
+  Transaction.findById(req.params.id, (err, transaction) => {
     if (err) return res.status(500).json({ err });
     if (!transaction) return res.status(404).json({ message: "Swish not found" });
-    return res.status(200).json({ transaction });
+    transaction.status = 4;
+    transaction.save((err, transaction) => {
+      if (err) return res.status(500).json({ err });
+      return res.status(200).json({ transaction });
+    });
   });
 }
 

@@ -1,0 +1,9 @@
+<h1>CHOOSE AN ITEM TO TRADE</h1>
+<a id="menu-toggle" ng-click="main.toggleFilter()" href="#">Filters</a>
+<h4 id="no-items" ng-hide="swishback.items">No items found</h4>
+<ul class="clothes-index">
+  <li ng-repeat="item in swishback.items track by $index" ui-sref="swishbackShow({ id: item._id })">
+    <img ng-src="{{item.image}}" alt="" />
+    <h4>{{item.title}}</h4>
+  </li>
+</ul>
