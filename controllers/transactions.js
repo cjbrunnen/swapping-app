@@ -10,7 +10,13 @@ module.exports = {
 const Transaction = require('../models/transaction');
 
 function transactionsIndex(req, res) {
-  Transaction.find()
+  let query = {};
+  if (req.query.initiator) query.initiator = req.query.initiator;
+  if (req.query.responder) query.responder = req.query.responder;
+
+  // Transaction.query({ user: CurrentUser.})
+
+  Transaction.find(query)
     .populate(['initiator', 'responder', 'initial_item', 'response_item'])
     .exec((err, transactions) => {
     if (err) return res.status(500).json({ message: "Something went wrong." });
