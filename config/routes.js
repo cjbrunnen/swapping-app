@@ -23,6 +23,7 @@ router.route('/clothesItems/:id')
 .delete(clothesItems.delete);
 
 router.route('/transactions')
+.get(transactions.index)
 .post(transactions.create);
 router.route('/transactions/:id/swishback')
 .put(transactions.swishback);
