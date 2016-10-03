@@ -58,7 +58,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     controller: 'SwishbackIndexCtrl as swishback'
   })
   .state('swishbackShow', {
-    url: '/:user/wardrobe/:itemid',
+    url: '/:user/wardrobe/:id',
     templateUrl: '/js/views/swishbacks/show.html',
     controller: 'SwishbackShowCtrl as swishback'
   })
