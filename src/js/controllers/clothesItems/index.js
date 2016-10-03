@@ -16,7 +16,6 @@ function ClothesItemsIndexCtrl(ClothesItem){
         i--;
       }
     }
-    console.log(vm.items[0]);
   });
   vm.clearFilters = clearFilters;
   function clearFilters(){
