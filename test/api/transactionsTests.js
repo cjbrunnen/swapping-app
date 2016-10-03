@@ -1,7 +1,6 @@
-/*
- *  Transaction (swish) tests.
- *  To add transaction update.
- */
+// /*
+//  *  Transaction (swish) tests.
+//  */
 
 require('../spec_helper');
 
@@ -19,6 +18,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
       passwordConfirmation: "password"
     });
 
+    // Create user 1.
     user1.save((err, user) => {
       api.post('/api/login')
       .set("Accept", "application/json")
@@ -41,6 +41,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
       passwordConfirmation: "password"
     });
 
+    // Create user 2.
     user2.save((err, user) => {
       api.post('/api/login')
       .set("Accept", "application/json")
@@ -54,6 +55,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
+  // Create item 1.
   beforeEach(done => {
     const item = new ClothesItem({
       title:        "Diesel Jeans",
@@ -69,6 +71,7 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
+  // Create item 2.
   beforeEach(done => {
     const item = new ClothesItem({
       title:        "Topman Jumper",
@@ -84,60 +87,128 @@ describe("=============================\r\n  Transactions Controller Tests\r\n  
     });
   });
 
+    // Create transaciton test.
+    describe("\r\nTask POST to /api/transactions\r\n", function(done) {
+      it("Returns a 201 when a new transaction is created.", done => {
+        api.post(`/api/transactions`)
+        .set('Accept', 'application/json')
+        .set("Authorization", `Bearer ${TOKEN}`)
+        .send({
+          transaction : {
+            initiator:     INITIATORID,
+            responder:     RESPONDERID,
+            initial_item:  INITIALITEMID,
+            status:        1
+          }
+        })
+        .end((err, transaction) => {
+          TRANSACTIONID = transaction.body.transaction._id;
+          console.log("");
+          console.log(`Transaction ID: ${transaction.body.transaction._id}`);
+          console.log(`Initiator ID:   ${transaction.body.transaction.initiator}`);
+          console.log("");
+          done();
+        });
+      });
+    });
 
-  describe("\r\nTask POST to /api/transactions\r\n", function(done) {
-    it("Returns a 201 when a new transaction is created.", done => {
+    // Create transaction unauthorised test.
+    it("\r\nTask POST to /api/transactions as an unauthorised user.\r\n", done => {
       api.post(`/api/transactions`)
       .set('Accept', 'application/json')
-      .set("Authorization", `Bearer ${TOKEN}`)
       .send({
         transaction : {
-          initiator:      INITIATORID,
+          initiator:     INITIATORID,
           responder:     RESPONDERID,
           initial_item:  INITIALITEMID,
           status:        1
         }
       })
-      .end((err, transaction) => {
-        console.log("");
-        console.log(`Transaction ID: ${transaction.body.transaction._id}`);
-        console.log(`Initiator ID:   ${transaction.body.transaction.initiator}`);
-        console.log("");
-        done();
+      .expect(401, done);
+    });
+
+    // Swishback/edit/update transactions test.
+    describe("\r\nTask PUT swishback to /api/transactions\r\n", function(done) {
+      it("Returns a 200 when a new transaction is updated.", done => {
+        api.put(`/api/transactions/${TRANSACTIONID}/swishback`)
+        .set('Accept', 'application/json')
+        .set("Authorization", `Bearer ${TOKEN}`)
+        .send({
+          transaction : {
+            initiator:      INITIATORID,
+            responder:      RESPONDERID,
+            initial_item:   INITIALITEMID,
+            response_item:  RESPONSEITEMID,
+            status:         2
+          }
+        })
+        .end((err, transaction) => {
+          console.log("");
+          console.log(transaction.body.transaction);
+          console.log("");
+          expect(transaction.body)
+          .to.have.property("transaction")
+          .and.have.any.keys([
+            'initiator',
+            'responder',
+            'initial_item',
+            'response_item',
+            'status'
+          ]);
+          done();
+        });
       });
     });
-  });
 
-  describe("\r\nTask PUT swishback to /api/transactions\r\n", function(done) {
-    it("Returns a 200 when a new transaction is created.", done => {
-      api.post(`/api/transactions`)
-      .set('Accept', 'application/json')
-      .set("Authorization", `Bearer ${TOKEN}`)
-      .send({
-        transaction : {
-          initiator:      INITIATORID,
-          responder:      RESPONDERID,
-          initial_item:   INITIALITEMID,
-          response_item:  RESPONSEITEMID,
-          status:         2
-        }
-      })
-      .end((err, transaction) => {
-        console.log("");
-        console.log(`Response Item ID: ${transaction.body.transaction.response_item}`);
-        console.log(`Status Code:      ${transaction.body.transaction.status}`);
-        console.log("");
-        done();
+    // Swishback/edit/update transactions unauthorised test.
+    describe("\r\nTask PUT swishback to /api/transactions as an unauthorised user.\r\n", function(done) {
+      it("Returns a 401 when a new transaction is updated.", done => {
+        api.put(`/api/transactions/${TRANSACTIONID}/swishback`)
+        .set('Accept', 'application/json')
+        .send({
+          transaction : {
+            initiator:      INITIATORID,
+            responder:      RESPONDERID,
+            initial_item:   INITIALITEMID,
+            response_item:  RESPONSEITEMID,
+            status:         2
+          }
+        }).expect(401, done);
       });
     });
+
+  // Transactions reject test
+  // describe("\r\nTask PUT reject to /api/transactions/:id/reject\r\n", function(done) {
+    // it("Returns a 200 when a new transaction is updated.", done => {
+    //   api.put(`/api/transactions/${TRANSACTIONID}/reject`)
+    //   .set('Accept', 'application/json')
+    //   .set("Authorization", `Bearer ${TOKEN}`)
+    //   .send({
+    //     })
+    //   .end((err, transaction) => {
+    //     console.log("");
+    //     console.log(transaction.body.transaction);
+    //     console.log("");
+    //     done();
+    //   });
+    // });
+  // });
+
+  // Transactions approve test
+  describe("\r\nTask PUT approve to /api/transactions/:id/approve\r\n", function(done) {
+
   });
 
+  // Transactions cancel test
+  describe("\r\nTask PUT cancel to /api/transactions/:id/cancel\r\n", function(done) {
 
+  });
 
   afterEach(done => {
-    Transaction.collection.drop();
+    User.collection.drop();
+    ClothesItem.collection.drop();
+    // Transaction.collection.drop();
     console.log("\r\n  =============================");
     done();
   });
-
 });
