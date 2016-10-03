@@ -21,11 +21,11 @@ function ClothesItemsShowCtrl(ClothesItem, Transaction, CurrentUserService, $sta
   };
 
   vm.swish = () => {
-    console.log(data);
     Transaction
       .save({ transaction: vm.transaction })
       .$promise
       .then(data => {
+        console.log(data);
         $state.go("clothesItemsIndex");
       });
   };
