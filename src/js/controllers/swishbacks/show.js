@@ -4,25 +4,23 @@ angular
 
 SwishbackShowCtrl.$inject = ["ClothesItem", "Transaction", "CurrentUserService", "$stateParams", "$state"];
 function SwishbackShowCtrl(ClothesItem, Transaction, CurrentUserService, $stateParams, $state){
-  console.log("HIYA");
-  console.log($stateParams);
   const vm = this;
+  vm.transaction_id = $stateParams.transaction;
+  console.log(vm.transaction_id);
   ClothesItem.get($stateParams, data => {
     vm.item = data.clothesItem;
     vm.user = CurrentUserService.getUser();
   });
 
   vm.swishback = () => {
-    console.log("swishback");
-    // vm.transaction = {
-    //   initial_item : vm.item._id
-    // };
-    // Transaction
-    //   .save({ transaction : vm.transaction })
-    //   .$promise
-    //   .then(data => {
-    //     console.log(data);
-    //     $state.go("clothesItemsIndex");
-    //   });
+    let transaction = {
+      response_item : vm.item._id
+    };
+    Transaction
+      .swishback({ _id : vm.transaction_id, transaction } )
+      .$promise
+      .then(data => {
+        $state.go("usersIncomingShow");
+      });
   };
 }

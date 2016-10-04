@@ -17,9 +17,9 @@
     </p>
     <ul>
       <li class="high img-fluid" ng-repeat="transaction in incoming.transactions">
-        <h4 ng-show="transcation.response_item">You want:</h4>
-        <img ng-show="transcation.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
-        <button ui-sref="swishbackIndex( { user : transaction.initiator._id } )" ng-hide="transcation.response_item" id="view-their-closet">View Their Items</button>
+        <h4 ng-show="transaction.response_item">You want:</h4>
+        <img ng-show="transaction.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
+        <button ui-sref="swishbackIndex( { user : transaction.initiator._id, transaction : transaction._id } )" ng-hide="transaction.response_item" id="view-their-closet">View Their Items</button>
       </li>
     </ul>
   </div>
@@ -30,10 +30,10 @@
       <ul>
       <li class="high img-fluid" ng-repeat="transaction in incoming.transactions">
 
-        <button type="button" name="button">Cancel</button>
+        <button type="button" ng-click="incoming.reject(transaction)">Cancel</button>
       </li>
     </ul>
 
   </div>
-
+<h4 ng-hide="incoming.transactions.length">No incoming swishes to show</h4>
 </div>

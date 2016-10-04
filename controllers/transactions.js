@@ -34,6 +34,7 @@ function transactionsCreate(req, res){
 }
 
 function transactionsSwishback(req, res){
+  console.log(req.params.id);
   Transaction.findById(req.params.id, (err, transaction) => {
     if (err) return res.status(500).json({ err });
     if (!transaction) return res.status(404).json({ message: "Swish not found" });
@@ -49,9 +50,7 @@ function transactionsSwishback(req, res){
 
 // Find all transactons with initial_item and set 'status' to 4.
 function transactionsApprove(req, res){
-  console.log("m");
-  Transaction.findById(req.body.id, (err, transaction) => {
-    console.log(transaction);
+  Transaction.findById(req.params.id, (err, transaction) => {
     if (err) return res.status(500).json({ err });
     if (!transaction) return res.status(404).json({ message: "Swish not found" });
     if (transaction.status !== 2) return res.status(500).json({ message: "You are unable to approve this swish."});

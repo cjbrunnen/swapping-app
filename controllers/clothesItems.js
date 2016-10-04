@@ -11,6 +11,7 @@ const ClothesItem = require('../models/clothesItem');
 function clothesItemsIndex(req, res) {
   let query = {};
   if (req.query.user) query.owner = req.query.user;
+  if (req.query.available) query.available = req.query.available;
   ClothesItem.find(query)
   .populate("owner")
   .exec((err, clothesItems) => {
@@ -20,7 +21,6 @@ function clothesItemsIndex(req, res) {
 }
 
 function clothesItemsCreate(req, res) {
-  console.log(req.body.clothesItem);
   const clothesItem = new ClothesItem(req.body.clothesItem);
   clothesItem.owner = req.user._id;
   clothesItem.save((err, clothesItem) => {
