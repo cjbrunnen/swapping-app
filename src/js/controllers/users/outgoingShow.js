@@ -12,10 +12,9 @@ function OutgoingShowCtrl(Transaction, CurrentUserService, $stateParams, $state)
     vm.transactions = data.transactions;
   });
 
-  vm.approve = () => {
-    console.log("booy");
+  vm.approve = (idhere) => {
     Transaction
-    .approve($stateParams, { transaction: vm.transaction })
+    .approve({id : idhere})
     .$promise
     .then(data => {
       $state.go("usersArchiveShow", $stateParams);
