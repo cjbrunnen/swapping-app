@@ -1,1 +1,43 @@
 <h2>ARCHIVE</h2>
+<div class="row">
+  <div class="swish-index-col col-xs-6 col-md-4">
+    <p>
+      Item 1
+    </p>
+    <ul>
+      <li class="high img-fluid" ng-repeat="transaction in archive.transactions">
+        <p>
+          {{transaction.initiator.name}} wants:
+        </p>
+        <img ui-sref="clothesItemShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}"/>
+      </li>
+    </ul>
+
+
+  </div>
+  <div class="swish-index-col col-xs-6 col-md-4">
+    <p>
+      Item 2
+    </p>
+    <ul>
+      <li class="high img-fluid" ng-repeat="transaction in archive.transactions">
+        <p>
+          {{transaction.responder.name}} wants:
+        </p>
+        <img ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
+      </li>
+    </ul>
+
+  </div>
+  <div class="swish-index-col col-xs-6 col-md-4">
+    <p>
+      Get in touch!
+    </p>
+    <ul>
+      <li class="high img-fluid" ng-repeat="transaction in archive.transactions">
+        <a href="mailto:{{archive.getEmailAddress({{transaction}})}}subject=Let's Swish!"</a>
+      </li>
+    </ul>
+  </div>
+
+</div>
