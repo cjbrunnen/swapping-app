@@ -31,8 +31,8 @@
     <ul>
       <li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
         <button type="button" ng-click="outgoing.approve(transaction._id)">Accept</button>
-        <button type="button" ng-click="outgoing.reject()">Reject</button>
-        <button type="button">Cancel</button>
+        <button type="button" ng-click="outgoing.reject(transaction._id)">Reject</button>
+        <button type="button" ng-click="outgoing.reject(transaction._id)">Cancel</button>
       </li>
     </ul>
   </div>

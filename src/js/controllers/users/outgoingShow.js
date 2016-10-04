@@ -21,9 +21,9 @@ function OutgoingShowCtrl(Transaction, CurrentUserService, $stateParams, $state)
     });
   };
 
-  vm.reject = () => {
+  vm.reject = (idhere) => {
     Transaction
-    .update($stateParams, { transaction: vm.transaction })
+    .reject({ id: idhere })
     .$promise
     .then(data => {
       $state.go("usersOutgoingShow", $stateParams);
