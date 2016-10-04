@@ -3,8 +3,7 @@ module.exports = {
   create:     transactionsCreate,
   swishback:  transactionsSwishback,
   approve:    transactionsApprove,
-  reject:     transactionsReject,
-  cancel:     transactionsCancel
+  reject:     transactionsReject
 };
 
 const Transaction = require('../models/transaction');
@@ -73,8 +72,4 @@ function transactionsReject(req, res){
       return res.status(200).json({ transaction });
     });
   });
-}
-
-function transactionsCancel(){
-
 }
