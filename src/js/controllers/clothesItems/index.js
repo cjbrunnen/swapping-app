@@ -6,7 +6,7 @@ ClothesItemsIndexCtrl.$inject = ["ClothesItem"];
 function ClothesItemsIndexCtrl(ClothesItem){
   const vm = this;
   ClothesItem
-  .query()
+  .query({available : true})
   .$promise
   .then(data => {
     vm.items = data.clothesItems;
@@ -21,7 +21,7 @@ function ClothesItemsIndexCtrl(ClothesItem){
   function clearFilters(){
     vm.filters = null;
     ClothesItem
-    .query()
+    .query({available : true})
     .$promise
     .then(data => {
       vm.items = data.clothesItems;
@@ -30,7 +30,7 @@ function ClothesItemsIndexCtrl(ClothesItem){
   vm.filter = filter;
   function filter(){
     ClothesItem
-    .query()
+    .query({available : true})
     .$promise
     .then(data => {
       vm.items = data.clothesItems;
