@@ -35,7 +35,7 @@
     </p>
     <ul>
       <li class="high img-fluid" ng-repeat="transaction in archive.transactions">
-        <a href="mailto:{{archive.getEmailAddress({{transaction}})}}subject=Let's Swish!"</a>
+        <a href="mailto:{{transaction.emailAddress}}subject=Let's Swish!"</a>
       </li>
     </ul>
   </div>
