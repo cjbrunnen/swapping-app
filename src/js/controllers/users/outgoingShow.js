@@ -13,8 +13,6 @@ function OutgoingShowCtrl(Transaction, CurrentUserService, $stateParams, $state)
   });
 
   vm.approve = (idhere) => {
-    console.log(idhere)
-
     Transaction
     .approve({ _id: idhere })
     .$promise
@@ -23,12 +21,13 @@ function OutgoingShowCtrl(Transaction, CurrentUserService, $stateParams, $state)
     });
   };
 
-  vm.reject = () => {
+  vm.reject = (transaction) => {
     Transaction
-    .update($stateParams, { transaction: vm.transaction })
+    .reject({ _id: transaction._id })
     .$promise
     .then(data => {
-      $state.go("usersOutgoingShow", $stateParams);
+      // $state.go("usersOutgoingShow", $stateParams);
+      vm.transactions.splice(vm.transactions.indexOf(transaction), 1);
     });
   };
 }
