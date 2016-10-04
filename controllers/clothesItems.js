@@ -20,7 +20,6 @@ function clothesItemsIndex(req, res) {
 }
 
 function clothesItemsCreate(req, res) {
-  console.log(req.body.clothesItem);
   const clothesItem = new ClothesItem(req.body.clothesItem);
   clothesItem.owner = req.user._id;
   clothesItem.save((err, clothesItem) => {
