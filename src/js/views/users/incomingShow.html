@@ -30,10 +30,10 @@
       <ul>
       <li class="high" ng-repeat="transaction in incoming.transactions">
 
-        <button type="button" name="button">Cancel</button>
+        <button type="button" ng-click="incoming.reject(transaction)">Cancel</button>
       </li>
     </ul>
 
   </div>
-
+<h4 ng-hide="incoming.transactions.length">No incoming swishes to show</h4>
 </div>

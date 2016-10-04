@@ -8,7 +8,7 @@ angular
     console.log("hello");
     const vm = this;
     Transaction
-    .query({ responder : CurrentUserService.getUser().id})
+    .query({ status : 3, responder : CurrentUserService.getUser().id})
     .$promise
     .then(data => {
       vm.transactions = data.transactions;
@@ -21,7 +21,7 @@ angular
       console.log("ADDING EMAILS TO FIRST BATCH");
       console.log(vm.transactions);
       Transaction
-      .query({ initiator : CurrentUserService.getUser().id })
+      .query({ status : 3, initiator : CurrentUserService.getUser().id })
       .$promise
       .then(data => {
         vm.transactionsTwo = data.transactions;
