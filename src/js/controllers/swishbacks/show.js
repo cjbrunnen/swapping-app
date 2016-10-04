@@ -5,6 +5,7 @@ angular
 SwishbackShowCtrl.$inject = ["ClothesItem", "Transaction", "CurrentUserService", "$stateParams", "$state"];
 function SwishbackShowCtrl(ClothesItem, Transaction, CurrentUserService, $stateParams, $state){
   console.log("HIYA");
+  console.log($stateParams);
   const vm = this;
   ClothesItem.get($stateParams, data => {
     vm.item = data.clothesItem;

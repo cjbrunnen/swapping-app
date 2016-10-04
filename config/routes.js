@@ -31,8 +31,6 @@ router.route('/transactions/:id/approve')
 .put(transactions.approve);
 router.route('/transactions/:id/reject')
 .put(transactions.reject);
-router.route('/transactions/:id/cancel')
-.put(transactions.cancel);
 
 
 

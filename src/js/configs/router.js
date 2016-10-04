@@ -53,12 +53,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     controller: 'ArchiveShowCtrl as archive'
   })
   .state('swishbackIndex', {
-    url: '/:user/wardrobe',
+    url: '/:transaction/:user/wardrobe',
     templateUrl: '/js/views/swishbacks/index.html',
     controller: 'SwishbackIndexCtrl as swishback'
   })
   .state('swishbackShow', {
-    url: '/:user/wardrobe/:id',
+    url: '/:transaction/:user/wardrobe/:id',
     templateUrl: '/js/views/swishbacks/show.html',
     controller: 'SwishbackShowCtrl as swishback'
   })
