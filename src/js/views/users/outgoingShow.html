@@ -6,14 +6,14 @@
     <li ng-repeat="transaction in outgoing.transactions">
       <div class="row">
 
-        <div class="col-md-4 one">
+        <div class="col-md-4 col-xs-4 one">
           <h3>You want</h3>
           <div class="image-container">
             <img ui-sref="clothesItemsShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}"/>
           </div>
         </div>
 
-        <div class="col-md-4 two">
+        <div class="col-md-4 col-xs-4 two">
           <h3 ng-show="transaction.response_item">They want</h3>
           <h3 ng-hide="transaction.response_item">Pending</h3>
           <div class="image-container">
@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 three">
+        <div class="col-md-4 col-xs-4 three">
           <button type="button" ng-show="transaction.response_item" ng-click="outgoing.approve(transaction._id)">Accept</button>
           <button type="button" ng-show="transaction.response_item" ng-click="outgoing.reject(transaction)">Reject</button>
           <button type="button" ng-click="outgoing.reject(transaction)">Cancel</button>
@@ -30,44 +30,44 @@
     </li>
   </ul>
 </div>
-
-<!-- <h2>OUTBOX</h2>
+<!--
+<h2>OUTBOX</h2>
 <div class="row">
-<div class="swish-index-col col-xs-6 col-md-4">
-<p>
-I want
-</p>
-<ul>
-<li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
-<img ui-sref="clothesItemsShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}"/>
-</li>
-</ul>
+  <div class="swish-index-col col-xs-6 col-md-4">
+    <p>
+      I want
+    </p>
+    <ul>
+      <li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
+        <img ui-sref="clothesItemsShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}"/>
+      </li>
+    </ul>
 
 
-</div>
-<div class="swish-index-col col-xs-6 col-md-4">
-<p>
-They want
-</p>
-<ul>
-<li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
-<h2 ng-hide="transaction.response_item">Pending</h2>
-<img ng-show="transaction.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
-</li>
-</ul>
-</div>
-<div class="swish-index-col col-xs-6 col-md-4">
-<p>
-Status
-</p>
-<ul>
-<li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
-<button type="button" ng-show="transaction.response_item" ng-click="outgoing.approve(transaction._id)">Accept</button>
-<button type="button" ng-show="transaction.response_item" ng-click="outgoing.reject(transaction)">Reject</button>
-<button type="button" ng-click="outgoing.reject(transaction)">Cancel</button>
-</li>
-</ul>
-</div>
+  </div>
+  <div class="swish-index-col col-xs-6 col-md-4">
+    <p>
+      They want
+    </p>
+    <ul>
+      <li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
+        <h2 ng-hide="transaction.response_item">Pending</h2>
+        <img ng-show="transaction.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
+      </li>
+    </ul>
+  </div>
+  <div class="swish-index-col col-xs-6 col-md-4">
+    <p>
+      Status
+    </p>
+    <ul>
+      <li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
+        <button type="button" ng-show="transaction.response_item" ng-click="outgoing.approve(transaction._id)">Accept</button>
+        <button type="button" ng-show="transaction.response_item" ng-click="outgoing.reject(transaction)">Reject</button>
+        <button type="button" ng-click="outgoing.reject(transaction)">Cancel</button>
+      </li>
+    </ul>
+  </div>
 
-<h4 ng-hide="outgoing.transactions.length">No outgoing swishes to show</h4>
+  <h4 ng-hide="outgoing.transactions.length">No outgoing swishes to show</h4>
 </div> -->
