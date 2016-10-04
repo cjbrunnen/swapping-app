@@ -5,8 +5,8 @@
       I want
     </p>
     <ul>
-      <li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
-        <img ui-sref="clothesItemShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}"/>
+      <li class="high" ng-repeat="transaction in outgoing.transactions">
+        <img class="img-fluid" ui-sref="clothesItemShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}"/>
       </li>
     </ul>
 
@@ -17,8 +17,8 @@
       They want
     </p>
     <ul>
-      <li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
-        <img ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
+      <li class="high" ng-repeat="transaction in outgoing.transactions">
+        <img class="img-fluid" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
       </li>
     </ul>
 
@@ -29,7 +29,7 @@
       Status
     </p>
     <ul>
-      <li class="high img-fluid" ng-repeat="transaction in outgoing.transactions">
+      <li class="high" ng-repeat="transaction in outgoing.transactions">
         <button type="button" ng-click="outgoing.approve(transaction._id)">Accept</button>
         <button type="button" ng-click="outgoing.reject(transaction._id)">Reject</button>
         <button type="button" ng-click="outgoing.reject(transaction._id)">Cancel</button>

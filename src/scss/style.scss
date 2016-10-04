@@ -1,8 +1,8 @@
 @import "bower";
 
 html {
-  overflow: scroll;
-  overflow-x: hidden;
+  // overflow: scroll;
+  // overflow-x: hidden;
 }
 ::-webkit-scrollbar {
   width: 0px;  /* remove scrollbar space */
@@ -15,16 +15,18 @@ body {
   background: #f5f5f5;
 }
 
-img {
-  max-height: 300px;
-}
+// img {
+//   max-height: 300px;
+// }
 
 
 ul {
+  list-style: none;
   li{
     img {
-      max-width: 100%;
+      max-width: 90%;
       height: auto;
+      background-size: contain;
     }
   }
 }
@@ -176,11 +178,6 @@ and (max-device-width : 667px) {
     li.ng-scope {
       display: block;
       text-align: center;
-      img {
-        width: 100%;
-        height: auto;
-        text-align: center;
-      }
     }
   }
 }
@@ -281,12 +278,6 @@ ul.clothes-index {
 }
 
 #menu-toggle {
-  // top: 0;
-  // margin: 5px 5px 0 0;
-  // right: 0;
-  // position: fixed;
-  // z-index: 1;
-  // float: right;
   text-decoration: none;
   color: black;
   font-size: 20px;
@@ -337,7 +328,7 @@ div.items-show {
   ul {
     padding: 0;
     margin: 0;
-    list-style-type: none;
+    list-style: none;
     li {
       text-align: center;
       h1 {
