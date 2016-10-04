@@ -19,7 +19,7 @@
       <li class="high" ng-repeat="transaction in incoming.transactions">
         <h4 ng-show="transaction.response_item">You want:</h4>
         <img class="img-fluid" ng-show="transaction.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
-        <button ui-sref="swishbackIndex( { user : transaction.initiator._id, transaction : transaction._id } )" ng-hide="transaction.response_item" id="view-their-closet">View Their Items</button>
+        <button class="btn btn-outline-secondary" ui-sref="swishbackIndex( { user : transaction.initiator._id, transaction : transaction._id } )" ng-hide="transaction.response_item" id="view-their-closet">View Their Items</button>
       </li>
     </ul>
   </div>
@@ -30,7 +30,7 @@
       <ul>
       <li class="high" ng-repeat="transaction in incoming.transactions">
 
-        <button type="button" ng-click="incoming.reject(transaction)">Cancel</button>
+        <button type="button" class="btn btn-outline-secondary" ng-click="incoming.reject(transaction)">Cancel</button>
       </li>
     </ul>
 
