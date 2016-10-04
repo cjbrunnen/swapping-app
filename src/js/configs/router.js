@@ -49,7 +49,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   })
   .state('usersArchiveShow', {
     url: '/user/archive',
-    templateUrl: '/js/views/users/completedShow.html',
+    templateUrl: '/js/views/users/archiveShow.html',
     controller: 'ArchiveShowCtrl as archive'
   })
   .state('swishbackIndex', {
