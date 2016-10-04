@@ -12,4 +12,13 @@ angular
       console.log(data);
       vm.transactions = data.transactions;
     });
+    vm.reject = (transaction) => {
+      Transaction
+      .reject({ _id: transaction._id })
+      .$promise
+      .then(data => {
+        // $state.go("usersOutgoingShow", $stateParams);
+        vm.transactions.splice(vm.transactions.indexOf(transaction), 1);
+      });
+    };
 }
