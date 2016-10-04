@@ -7,10 +7,10 @@ angular
   function ArchiveShowCtrl(Transaction, CurrentUserService){
     console.log("hello");
     const vm = this;
-    Transaction
-    .query()
-    .$promise
-    .then(data => {
-      vm.swishes = data.transactions;
-    });
+    // Transaction
+    // .query()
+    // .$promise
+    // .then(data => {
+    //   vm.swishes = data.transactions;
+    // });
   }
