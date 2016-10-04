@@ -1,3 +1,33 @@
+<div class="inbox">
+  <h1>Inbox</h1>
+
+  <ul>
+    <li ng-repeat="transaction in incoming.transactions">
+      <div class="row">
+
+        <div class="col-md-4 one">
+          <h3>{{transaction.initiator.firstName}} wants:</h3>
+          <div class="image-container">
+            <img class="img-fluid" ui-sref="clothesItemsShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}" />
+          </div>
+        </div>
+
+        <div class="col-md-4 two">
+          <h3 ng-show="transaction.response_item">You want</h3>
+          <div class="image-container">
+            <img class="img-fluid" ng-show="transaction.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
+          </div>
+          <button ui-sref="swishbackIndex( { user : transaction.initiator._id, transaction : transaction._id } )" ng-hide="transaction.response_item" id="view-their-closet">View Their Items</button>
+        </div>
+
+        <div class="col-md-4 three">
+          <button type="button" ng-click="incoming.reject(transaction)">Cancel</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
 <!-- <h2>INBOX</h2>
 <div class="row">
 <div class="swish-index-col col-xs-6 col-md-4">
@@ -35,37 +65,3 @@ I want
 </div>
 <h4 ng-hide="incoming.transactions.length">No incoming swishes to show</h4>
 </div> -->
-
-
-
-<div class="inbox">
-  <h1>Inbox</h1>
-
-  <ul>
-    <li ng-repeat="transaction in incoming.transactions">
-      <div class="row">
-
-        <div class="col-md-4 one">
-          <h3>{{transaction.initiator.firstName}} wants:</h3>
-          <div class="image-container">
-            <img class="img-fluid" ui-sref="clothesItemsShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}" />
-          </div>
-        </div>
-
-        <div class="col-md-4 two">
-          <h3 ng-show="transaction.response_item">You want</h3>
-          <div class="image-container">
-            <img class="img-fluid" ng-show="transaction.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
-          </div>
-          <button ui-sref="swishbackIndex( { user : transaction.initiator._id, transaction : transaction._id } )" ng-hide="transaction.response_item" id="view-their-closet">View Their Items</button>
-        </div>
-
-        <div class="col-md-4 three">
-          <div class="container">
-            <button type="button" ng-click="incoming.reject(transaction)">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
-</div>

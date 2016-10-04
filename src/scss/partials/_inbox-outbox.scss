@@ -9,7 +9,6 @@
 
     li {
       margin: 5px;
-      border: 1px solid #333;
 
       .row {
         .one, .two, .three {
@@ -30,13 +29,8 @@
         }
 
         .three {
-          position: relative;
-          
-          .container {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
+          button {
+            margin: 55% auto;
           }
         }
       }
