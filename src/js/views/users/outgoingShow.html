@@ -22,9 +22,9 @@
         </div>
 
         <div class="col-md-4 col-xs-4 three">
-          <button type="button" ng-show="transaction.response_item" ng-click="outgoing.approve(transaction._id)">Accept</button>
-          <button type="button" ng-show="transaction.response_item" ng-click="outgoing.reject(transaction)">Reject</button>
-          <button type="button" ng-click="outgoing.reject(transaction)">Cancel</button>
+          <button type="button" class="btn btn-success" ng-show="transaction.response_item" ng-click="outgoing.approve(transaction._id)">Accept</button>
+          <button type="button" class="btn btn-warning" ng-show="transaction.response_item" ng-click="outgoing.reject(transaction)">Reject</button>
+          <button type="button" class="btn btn-danger" ng-click="outgoing.reject(transaction)">Cancel</button>
         </div>
       </div>
     </li>
