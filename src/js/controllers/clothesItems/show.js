@@ -27,6 +27,7 @@ function ClothesItemsShowCtrl(ClothesItem, Transaction, CurrentUserService, $sta
       .save({ transaction : vm.transaction })
       .$promise
       .then(data => {
+        console.log(data.message);
         $state.go("clothesItemsIndex");
       });
   };
