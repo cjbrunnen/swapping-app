@@ -22,4 +22,13 @@ function OutgoingShowCtrl(Transaction, CurrentUserService, $stateParams, $state)
       $state.go("usersArchiveShow", $stateParams);
     });
   };
+
+  vm.reject = () => {
+    Transaction
+    .update($stateParams, { transaction: vm.transaction })
+    .$promise
+    .then(data => {
+      $state.go("usersOutgoingShow", $stateParams);
+    });
+  };
 }
