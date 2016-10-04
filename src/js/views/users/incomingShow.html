@@ -16,11 +16,11 @@
           <div class="image-container">
             <img class="img-fluid" ng-show="transaction.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
           </div>
-          <button ui-sref="swishbackIndex( { user : transaction.initiator._id, transaction : transaction._id } )" ng-hide="transaction.response_item" id="view-their-closet">View Their Items</button>
+          <button class="btn btn-success" ui-sref="swishbackIndex( { user : transaction.initiator._id, transaction : transaction._id } )" ng-hide="transaction.response_item" id="view-their-closet">View Their Items</button>
         </div>
 
         <div class="col-md-4 col-xs-4 three">
-          <button type="button" ng-click="incoming.reject(transaction)">Cancel</button>
+          <button class="btn btn-danger" type="button" ng-click="incoming.reject(transaction)">Cancel</button>
         </div>
       </div>
     </li>

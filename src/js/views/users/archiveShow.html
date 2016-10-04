@@ -14,14 +14,14 @@
 
         <div class="col-md-4 col-xs-4 two">
           <div class="image-container">
-            <p>{{transaction.responder.firstName}} wants:</p>
+            <h3>{{transaction.responder.firstName}} wants:</h3>
             <img ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
           </div>
           <button ui-sref="swishbackIndex( { user : transaction.initiator._id, transaction : transaction._id } )" ng-hide="transaction.response_item" id="view-their-closet">View Their Items</button>
         </div>
 
         <div class="col-md-4 col-xs-4 three">
-          <p>Set it up!</p>
+          <h3>Set it up!</h3>
           <a class="btn btn-success" href="mailto:{{transaction.emailAddress}}?subject=Let's swish!">Get in touch</a>
         </div>
       </div>
