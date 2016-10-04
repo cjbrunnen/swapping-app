@@ -1,24 +1,19 @@
 @import "bower";
-@import "partials/media-query";
+@import "partials/typeface";
 @import "partials/in-out-box";
 
 html {
-  // overflow: scroll;
-  // overflow-x: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 ::-webkit-scrollbar {
   width: 0px;  /* remove scrollbar space */
   background: transparent;  /* optional: just make scrollbar invisible */
 }
 
-body {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-weight: 300;
-  background: #f5f5f5;
-}
 
-<<<<<<< HEAD
-=======
+
+
 img {
   max-height: 300px;
 }
@@ -33,27 +28,17 @@ ul {
   }
 }
 
-.high {
-  height: 300px;
-}
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
+// .high {
+//   height: 300px;
+// }
+@media only screen and (max-width : 667px) {
   .high {
     height: 100px;
   }
-
 }
 
 
->>>>>>> development
-h2 {
-  margin-top: 5px;
-  margin-bottom: 15px;
-  text-align: center;
-  font-size: 36px;
-  text-shadow: 0px 0px 1px  #5f6062;
-}
+
 
 main {
   margin-bottom: 80px;
@@ -300,3 +285,5 @@ ul.nav-buttons {
 .swish-index-col {
   width: 33%;
 }
+
+@import "partials/media-query";
