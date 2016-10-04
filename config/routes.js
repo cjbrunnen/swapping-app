@@ -25,11 +25,11 @@ router.route('/clothesItems/:id')
 router.route('/transactions')
 .get(transactions.index)
 .post(transactions.create);
-router.route('/transactions/swishback')
+router.route('/transactions/:id/swishback')
 .put(transactions.swishback);
-router.route('/transactions/approve')
+router.route('/transactions/:id/approve')
 .put(transactions.approve);
-router.route('/transactions/reject')
+router.route('/transactions/:id/reject')
 .put(transactions.reject);
 
 
