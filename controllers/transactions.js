@@ -64,11 +64,14 @@ function transactionsApprove(req, res){
 
 // Change 'status' to 4.
 function transactionsReject(req, res){
-  Transaction.findById(req.params.id, (err, transaction) => {
+  Transaction.findById(req.body.id, (err, transaction) => {
+    console.log("one");
     if (err) return res.status(500).json({ err });
+    console.log("two");
     if (!transaction) return res.status(404).json({ message: "Swish not found" });
     transaction.status = 4;
     transaction.save((err, transaction) => {
+      console.log("three");
       if (err) return res.status(500).json({ err });
       return res.status(200).json({ transaction });
     });

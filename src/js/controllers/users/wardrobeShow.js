@@ -6,7 +6,7 @@ WardrobeShowCtrl.$inject = ["ClothesItem", "CurrentUserService"];
 function WardrobeShowCtrl(ClothesItem, CurrentUserService){
   const vm = this;
   ClothesItem
-  .query({ user : CurrentUserService.getUser().id })
+  .query({available : true,  user : CurrentUserService.getUser().id })
   .$promise
   .then(data => {
     vm.items = data.clothesItems;
@@ -16,7 +16,7 @@ function WardrobeShowCtrl(ClothesItem, CurrentUserService){
   function clearFilters(){
     vm.filters = null;
     ClothesItem
-    .query({ user : CurrentUserService.getUser().id })
+    .query({ available : true, user : CurrentUserService.getUser().id })
     .$promise
     .then(data => {
       vm.items = data.clothesItems;
@@ -26,7 +26,7 @@ function WardrobeShowCtrl(ClothesItem, CurrentUserService){
   vm.filter = filter;
   function filter(){
     ClothesItem
-    .query({ user : CurrentUserService.getUser().id })
+    .query({ available : true, user : CurrentUserService.getUser().id })
     .$promise
     .then(data => {
       vm.items = data.clothesItems;

@@ -1,8 +1,10 @@
 @import "bower";
+@import "partials/media-query";
+@import "partials/in-out-box";
 
 html {
-  overflow: scroll;
-  overflow-x: hidden;
+  // overflow: scroll;
+  // overflow-x: hidden;
 }
 ::-webkit-scrollbar {
   width: 0px;  /* remove scrollbar space */
@@ -15,6 +17,8 @@ body {
   background: #f5f5f5;
 }
 
+<<<<<<< HEAD
+=======
 img {
   max-height: 300px;
 }
@@ -42,6 +46,7 @@ and (max-device-width : 667px) {
 }
 
 
+>>>>>>> development
 h2 {
   margin-top: 5px;
   margin-bottom: 15px;
@@ -58,6 +63,8 @@ main {
 a#mobile-logo {
   display: none;
 }
+
+
 
 header {
   background: #333;
@@ -113,77 +120,7 @@ div.home-page {
   }
 }
 
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
-  .navbar .navbar-nav {
-    display: inline-block;
-    float: none;
-    vertical-align: top;
-    a {
-      padding: 0;
-      text-transform: uppercase;
-      text-decoration: underline;
-      font-weight: 500;
-    }
-  }
-  .navbar .navbar-collapse {
-    text-align: center;
-  }
-  a#active-logo{
-    display: none;
-  }
-  a#menu-toggle, #sidebar-nav {
-    display: none;
-  }
-  a#mobile-logo {
-    display: inline;
-  }
-  h2 {
-    margin: 0;
-  }
-  div.home-page {
-    padding-top: 0;
-    background: none;
-    form {
-      padding-top: 5px;
-      padding-bottom: 0;
-      width: 100%;
-    }
-  }
-  header {
-    a.navbar-brand {
-      height: 50px;
-      line-height: 50px;
-      padding: 0;
-    }
-  }
-  .navbar-toggle {
-    position: relative;
-    float: right;
-    padding: 9px 10px;
-    margin-top: 8px;
-    margin-right: 15px;
-    margin-bottom: 8px;
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: 4px;
-  }
-  form.add-item{
-    width: 300px;
-  }
-  ul.clothes-index {
-    li.ng-scope {
-      display: block;
-      text-align: center;
-      img {
-        width: 100%;
-        height: auto;
-        text-align: center;
-      }
-    }
-  }
-}
+
 
 h4#no-items {
   margin-left: 30px;
@@ -281,12 +218,6 @@ ul.clothes-index {
 }
 
 #menu-toggle {
-  // top: 0;
-  // margin: 5px 5px 0 0;
-  // right: 0;
-  // position: fixed;
-  // z-index: 1;
-  // float: right;
   text-decoration: none;
   color: black;
   font-size: 20px;
@@ -337,7 +268,7 @@ div.items-show {
   ul {
     padding: 0;
     margin: 0;
-    list-style-type: none;
+    list-style: none;
     li {
       text-align: center;
       h1 {

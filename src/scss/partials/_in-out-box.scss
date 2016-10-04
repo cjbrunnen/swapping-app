@@ -1,0 +1,16 @@
+ul {
+  list-style: none;
+  li.high {
+    height: 300px;
+    img {
+      max-width: 90%;
+      height: auto;
+      display: block;
+      background-size: contain;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
