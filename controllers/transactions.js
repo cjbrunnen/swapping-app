@@ -34,6 +34,7 @@ function transactionsCreate(req, res){
 }
 
 function transactionsSwishback(req, res){
+  console.log(req.params.id);
   Transaction.findById(req.params.id, (err, transaction) => {
     if (err) return res.status(500).json({ err });
     if (!transaction) return res.status(404).json({ message: "Swish not found" });

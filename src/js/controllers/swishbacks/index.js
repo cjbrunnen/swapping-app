@@ -5,6 +5,8 @@ angular
 SwishbackIndexCtrl.$inject = ["ClothesItem", "$stateParams"];
 function SwishbackIndexCtrl(ClothesItem, $stateParams){
   const vm = this;
+  vm.transaction_id = $stateParams.transaction;
+  console.log(vm.transaction_id);
   ClothesItem
   .query($stateParams)
   .$promise
