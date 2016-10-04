@@ -5,7 +5,7 @@
       They want
     </p>
     <ul>
-      <li ng-repeat="transaction in incoming.transactions">
+      <li class="high img-fluid" ng-repeat="transaction in incoming.transactions">
         <h4>{{transaction.initiator.firstName}} wants:</h4>
         <img ui-sref="clothesItemsShow({ id : transaction.initial_item._id })" ng-src="{{ transaction.initial_item.image }}" />
       </li>
@@ -16,7 +16,7 @@
       I want
     </p>
     <ul>
-      <li ng-repeat="transaction in incoming.transactions">
+      <li class="high img-fluid" ng-repeat="transaction in incoming.transactions">
         <h4 ng-show="transcation.response_item">You want:</h4>
         <img ng-show="transcation.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
         <button ui-sref="swishbackIndex( { user : transaction.initiator._id } )" ng-hide="transcation.response_item" id="view-their-closet">View Their Items</button>
@@ -28,7 +28,7 @@
       Status
     </p>
       <ul>
-      <li ng-repeat="transaction in incoming.transactions">
+      <li class="high img-fluid" ng-repeat="transaction in incoming.transactions">
 
         <button type="button" name="button">Cancel</button>
       </li>
