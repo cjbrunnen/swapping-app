@@ -10,9 +10,12 @@ const Transaction = require('../models/transaction');
 
 function transactionsIndex(req, res) {
   let query = {};
-  if (req.query.initiator) query.initiator = req.query.initiator;
-  if (req.query.responder) query.responder = req.query.responder;
+  if (req.query.initiator) query.initiator = req.user._id;
+  if (req.query.responder) query.responder = req.user._id;
   if (req.query.status) query.status = req.query.status;
+  if (req.query.activeDeal) query.status = {
+    $in: [1,2]
+  };
 
   // Transaction.query({ user: CurrentUser.})
 
