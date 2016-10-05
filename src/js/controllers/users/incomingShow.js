@@ -10,10 +10,11 @@ angular
     .$promise
     .then(data => {
       vm.transactions = data.transactions;
-    
+
     });
 
     vm.reject = (transaction) => {
+      console.log("cancel");
       Transaction
       .reject({ _id: transaction._id })
       .$promise

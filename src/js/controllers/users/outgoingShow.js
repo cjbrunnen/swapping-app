@@ -23,12 +23,10 @@ function OutgoingShowCtrl(Transaction, CurrentUserService, $stateParams, $state)
 
 
   vm.reject = (transaction) => {
-    console.log(transaction._id);
     Transaction
     .reject({ _id: transaction._id })
     .$promise
     .then(data => {
-      console.log(data);
       // $state.go("usersOutgoingShow", $stateParams);
       vm.transactions.splice(vm.transactions.indexOf(transaction), 1);
     });
