@@ -68,6 +68,7 @@ and (max-device-width : 667px) {
       text-align: center;
     }
   }
+
   .inbox {
     margin: 0 auto;
     text-align: center;
@@ -93,9 +94,9 @@ and (max-device-width : 667px) {
               }
             }
           }
-          a.archive-three {
-            margin: 90px auto 0 auto;
-          }
+          // a.archive-three {
+          //   margin: 90px auto 0 auto;
+          // }
           .three {
             margin: 40px auto;
             button {
