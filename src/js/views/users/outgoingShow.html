@@ -1,5 +1,5 @@
 <div class="inbox">
-  <h1>Outbox</h1>
+  <h2>OUTBOX</h2>
   <h4 ng-hide="outgoing.transactions.length">No outgoing swishes to show</h4>
 
   <ul>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="col-md-4 col-xs-4 two">
-          <h3 ng-show="transaction.response_item">They want</h3>
+          <h3 ng-show="transaction.response_item">{{transaction.responder.firstName}} wants</h3>
           <h3 ng-hide="transaction.response_item">Pending</h3>
           <div class="image-container">
             <img ng-show="transaction.response_item" ui-sref="clothesItemsShow({ id : transaction.response_item._id})" ng-src="{{ transaction.response_item.image }}" />
