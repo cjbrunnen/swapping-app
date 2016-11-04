@@ -6,3 +6,4 @@ module.exports = {
    },
    secret: process.env.SECRET || "gosh this is so secret... shhh..."
    };
+
