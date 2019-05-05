@@ -1,19 +1,11 @@
-# wdi-project-3
+# SWISHList - an app to 'swish' clothes with other users
 
-* Johnnie de La Moriniere
-* Caz Brunnen
-* Dan Rogers
-* Abigail Emma Belinda Coe
+MEAN stack
 
-Swishr
-  User's Wardrobe
-  Swish List
-
-Basics:
+Overview:
 Clothes re-cycling site in the spirit of the sharing economy.
-Users upload clothes to swap for others.
+Users upload clothing to swap for other items.
 
-Aimed at - students and yuppies
 Clear, user-friendly.
 
 must have / should have / could have
